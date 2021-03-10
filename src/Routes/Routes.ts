@@ -11,12 +11,14 @@ class Routes {
     private categorycontroller: CategoryController;
     private subcategorycontroller: SubCategoryController;
     private productTypeController: ProductTypeController;
+    private productSubTypeController: ProductSubTypeController;
     public router=express.Router;
        constructor() {
         this.controller = new Controller();
         this.categorycontroller = new CategoryController();
         this.subcategorycontroller = new SubCategoryController();
         this.productTypeController = new ProductTypeController();
+        this.productSubTypeController = new ProductSubTypeController();
       
     } 
    
@@ -46,6 +48,9 @@ class Routes {
           
         app.route('/getProductType').get(this.productTypeController.getProductType)
         app.route('/CreateProductType').post(this.productTypeController.CreateProductType)
+          
+        app.route('/getSubType').get(this.productSubTypeController.getSubType)
+        app.route('/CreateSubType').post(this.productSubTypeController.CreateSubType)
           
           }
 

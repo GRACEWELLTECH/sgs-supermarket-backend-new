@@ -22,7 +22,7 @@ export class ProductSubTypeController{
                 .then(async connection => {
                    
                     let Type = new ProductSubType()
-                    Type.SubTypeName = req.body.typeName;
+                    Type.SubTypeName = req.body.SubTypeName;
                     Type.productType = req.body.productType;
 
                     await connection.manager.save(Type);
