@@ -6,6 +6,8 @@ import Category from "../entity/Category";
 import SubCategory from "../entity/SubCategory";
 import ProductType from "../entity/ProductType";
 import ProductSubType from "../entity/ProductSubType";
+import Kind from "../entity/Kind";
+import SubKind from "../entity/SubKind";
 
 
 export const connection = createConnection({
@@ -21,7 +23,9 @@ export const connection = createConnection({
         Power,
         SubCategory,
         ProductType,
-        ProductSubType   
+        ProductSubType,
+        Kind,
+        SubKind  
     ],
     synchronize: true,
     logging: false

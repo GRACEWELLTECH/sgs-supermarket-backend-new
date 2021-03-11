@@ -4,6 +4,7 @@ import {CategoryController} from "../controller/category.controller";
 import {SubCategoryController} from "../controller/subCategory.controller";
 import {ProductTypeController} from "../controller/productType.controller";
 import {ProductSubTypeController} from "../controller/productSubType.controller";
+import {KindController} from "../controller/kind.controller";
 import * as express from "express";
 class Routes {    
      
@@ -12,6 +13,7 @@ class Routes {
     private subcategorycontroller: SubCategoryController;
     private productTypeController: ProductTypeController;
     private productSubTypeController: ProductSubTypeController;
+    private kindController: KindController;
     public router=express.Router;
        constructor() {
         this.controller = new Controller();
@@ -19,7 +21,7 @@ class Routes {
         this.subcategorycontroller = new SubCategoryController();
         this.productTypeController = new ProductTypeController();
         this.productSubTypeController = new ProductSubTypeController();
-      
+        this. kindController=new  KindController();
     } 
    
     public routes(app): void {
@@ -51,6 +53,13 @@ class Routes {
           
         app.route('/getSubType').get(this.productSubTypeController.getSubType)
         app.route('/CreateSubType').post(this.productSubTypeController.CreateSubType)
+        
+        
+        app.route('/getKind').get(this.kindController.getKind)
+        app.route('/CreateKind').post(this.kindController.CreateKind)
+     
+        app.route('/getSubKind').get(this.kindController.getSubKind)
+        app.route('/CreateSubKind').post(this.kindController.CreateSubKind)
           
           }
 
