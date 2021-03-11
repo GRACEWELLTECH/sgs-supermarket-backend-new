@@ -17,6 +17,18 @@ export class ProductSubTypeController{
                 }); 
       
     }
+    async getSubTypeByType(req, res,next) {
+      connection
+                .then(async connection => {
+                    const typeList: ProductSubType[] = await connection.manager.find(ProductSubType,{where:{productType:req.params.typeId}});
+                    res.json(typeList);
+                })
+                .catch(error => {
+                    console.error("Error ", error);
+                    res.json(error);
+                }); 
+      
+    }
     async CreateSubType(req, res,next) {
       connection
                 .then(async connection => {

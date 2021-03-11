@@ -17,6 +17,18 @@ export class SubCategoryController{
                 }); 
       
     }
+     async getSubCategorybyCategory(req, res,next) {
+     connection
+                .then(async connection => {
+                    const CategoryList: SubCategory[] = await connection.manager.find(SubCategory,{where:{category:req.params.categoryId}});
+                    res.json(CategoryList);
+                })
+                .catch(error => {
+                    console.error("Error ", error);
+                    res.json(error);
+                }); 
+      
+    }
     async createSubCategory(req, res,next) {
        connection
                 .then(async connection => {

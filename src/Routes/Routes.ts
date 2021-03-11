@@ -46,12 +46,14 @@ class Routes {
        
        
         app.route('/subcategory').get(this.subcategorycontroller.getSubCategory)
+        app.route('/subcategorybyCategory/:categoryId').get(this.subcategorycontroller.getSubCategorybyCategory)
         app.route('/createSubcategory').post(this.subcategorycontroller.createSubCategory)
           
         app.route('/getProductType').get(this.productTypeController.getProductType)
         app.route('/CreateProductType').post(this.productTypeController.CreateProductType)
           
         app.route('/getSubType').get(this.productSubTypeController.getSubType)
+        app.route('/getSubTypeByType/:typeId').get(this.productSubTypeController.getSubTypeByType)
         app.route('/CreateSubType').post(this.productSubTypeController.CreateSubType)
         
         
@@ -59,6 +61,7 @@ class Routes {
         app.route('/CreateKind').post(this.kindController.CreateKind)
      
         app.route('/getSubKind').get(this.kindController.getSubKind)
+        app.route('/getSubKindByKind/:kind').get(this.kindController.getSubKindByKind)
         app.route('/CreateSubKind').post(this.kindController.CreateSubKind)
           
           }
