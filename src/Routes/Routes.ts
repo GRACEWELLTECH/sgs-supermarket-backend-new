@@ -26,6 +26,7 @@ class Routes {
    
     public routes(app): void {
        
+     
         app.route('/')
             .get((request: Request, response: Response) => {
                 response.status(200)

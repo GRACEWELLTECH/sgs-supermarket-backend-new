@@ -8,6 +8,7 @@ import ProductType from "../entity/ProductType";
 import ProductSubType from "../entity/ProductSubType";
 import Kind from "../entity/Kind";
 import SubKind from "../entity/SubKind";
+import weightUnit from "../entity/weightUnit";
 
 
 export const connection = createConnection({
@@ -18,14 +19,11 @@ export const connection = createConnection({
     password: "Passw0rd",
     database: "mydb",
     entities: [
-        Category,
-        SuperHero,
-        Power,
-        SubCategory,
-        ProductType,
-        ProductSubType,
-        Kind,
-        SubKind  
+        Category,SubCategory,
+        SuperHero,Power,
+        ProductType,ProductSubType,
+        Kind,SubKind,
+        weightUnit  
     ],
     synchronize: true,
     logging: false

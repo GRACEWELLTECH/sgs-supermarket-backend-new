@@ -14,7 +14,7 @@ import * as express from 'express'
 import {Routes} from './routes/Routes';
 import bodyParser = require("body-parser");
 
-// import routes from './routes';
+import routes from './routes';
 class App {public app: express.Application;
     
     public routePrv: Routes;
@@ -34,6 +34,7 @@ class App {public app: express.Application;
                 next();
         });
        
+        this.app.use('/api',routes)
         this.routePrv = new Routes();
         this.routePrv.routes(this.app);
 
