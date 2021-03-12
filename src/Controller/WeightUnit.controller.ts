@@ -22,7 +22,7 @@ export class WeightUnitCobtroller{
                 .then(async connection => {
                     console.log(req.body)
                     let category = new WeightUnit()
-                    category.UnitName = req.body.UnitName
+                    category.UnitName = req.body.unitName
                     category.abbreviation = req.body.abbreviation
                     await connection.manager.save(category);
                 res.json({message: "Successfully Saved."})

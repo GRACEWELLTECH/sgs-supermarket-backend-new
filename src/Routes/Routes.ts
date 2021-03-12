@@ -5,6 +5,7 @@ import {SubCategoryController} from "../controller/subCategory.controller";
 import {ProductTypeController} from "../controller/productType.controller";
 import {ProductSubTypeController} from "../controller/productSubType.controller";
 import {KindController} from "../controller/kind.controller";
+import {WeightUnitCobtroller} from "../controller/WeightUnit.controller";
 import * as express from "express";
 class Routes {    
      
@@ -14,6 +15,7 @@ class Routes {
     private productTypeController: ProductTypeController;
     private productSubTypeController: ProductSubTypeController;
     private kindController: KindController;
+    private unitController: WeightUnitCobtroller;
     public router=express.Router;
        constructor() {
         this.controller = new Controller();
@@ -21,7 +23,9 @@ class Routes {
         this.subcategorycontroller = new SubCategoryController();
         this.productTypeController = new ProductTypeController();
         this.productSubTypeController = new ProductSubTypeController();
-        this. kindController=new  KindController();
+        this.kindController=new  KindController();
+        this.unitController=new WeightUnitCobtroller();
+
     } 
    
     public routes(app): void {
@@ -57,14 +61,17 @@ class Routes {
         app.route('/getSubTypeByType/:typeId').get(this.productSubTypeController.getSubTypeByType)
         app.route('/CreateSubType').post(this.productSubTypeController.CreateSubType)
         
-        
         app.route('/getKind').get(this.kindController.getKind)
         app.route('/CreateKind').post(this.kindController.CreateKind)
      
         app.route('/getSubKind').get(this.kindController.getSubKind)
         app.route('/getSubKindByKind/:kind').get(this.kindController.getSubKindByKind)
         app.route('/CreateSubKind').post(this.kindController.CreateSubKind)
+        
+        app.route('/getWeightUnits').get(this.unitController.getWeight)
+        app.route('/createWeightUnit').post(this.unitController.createWeight)
           
+        
           }
 
           

@@ -8,8 +8,8 @@ import ProductType from "../entity/ProductType";
 import ProductSubType from "../entity/ProductSubType";
 import Kind from "../entity/Kind";
 import SubKind from "../entity/SubKind";
-import weightUnit from "../entity/weightUnit";
 
+import {WeightUnit} from "../entity/WeightUnit"
 
 export const connection = createConnection({
      type: "mysql",
@@ -23,7 +23,7 @@ export const connection = createConnection({
         SuperHero,Power,
         ProductType,ProductSubType,
         Kind,SubKind,
-        weightUnit  
+        WeightUnit  
     ],
     synchronize: true,
     logging: false
