@@ -48,6 +48,18 @@ export class ManufacturerController{
                 }); 
       
     }
+    async getBarandsByManufacturer(req, res,next) {
+      connection
+                .then(async connection => {
+                    const typeList: Brand[] = await connection.manager.find(Brand,{where:{Manufacturer:req.params.manufacturer}});
+                    res.json(typeList);
+                })
+                .catch(error => {
+                    console.error("Error ", error);
+                    res.json(error);
+                }); 
+      
+    }
     async createBrand(req, res,next) {
       connection
                 .then(async connection => {

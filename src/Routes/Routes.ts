@@ -38,38 +38,41 @@ class Routes {
                         message: "GET request successfully."
                     });
             });// following code is to handle http://localhost:3000/superHero request.
-        app.route('/superHero')
-            .get(this.controller.getAllSuperHero)
-            .post(this.controller.addSuperHero);
-    // following code is to handle http://localhost:3000/superHero/{superHeroId} request.
-        app.route('/superHero/:superHeroId')
-            .get(this.controller.getSuperHeroById)
-            // .put(this.controller.updateSuperHero)
-            // .delete(this.controller.deleteSuperHero);  
-        app.route('/catageory').get(this.categorycontroller.getCategory)
-        app.route('/createCatageory').post(this.categorycontroller.CreateCategory)
+    //     app.route('/superHero')
+    //         .get(this.controller.getAllSuperHero)
+    //         .post(this.controller.addSuperHero);
+    // // following code is to handle http://localhost:3000/superHero/{superHeroId} request.
+    //     app.route('/superHero/:superHeroId')
+    //         .get(this.controller.getSuperHeroById)
+    //         // .put(this.controller.updateSuperHero)
+    //         // .delete(this.controller.deleteSuperHero);  
+    //     app.route('/catageory').get(this.categorycontroller.getCategory)
+    //     app.route('/createCatageory').post(this.categorycontroller.CreateCategory)
        
        
-        app.route('/subcategory').get(this.subcategorycontroller.getSubCategory)
-        app.route('/subcategorybyCategory/:categoryId').get(this.subcategorycontroller.getSubCategorybyCategory)
-        app.route('/createSubcategory').post(this.subcategorycontroller.createSubCategory)
+    //     app.route('/subcategory').get(this.subcategorycontroller.getSubCategory)
+    //     app.route('/subcategorybyCategory/:categoryId').get(this.subcategorycontroller.getSubCategorybyCategory)
+    //     app.route('/createSubcategory').post(this.subcategorycontroller.createSubCategory)
           
-        app.route('/getProductType').get(this.productTypeController.getProductType)
-        app.route('/CreateProductType').post(this.productTypeController.CreateProductType)
+    //     app.route('/getProductType').get(this.productTypeController.getProductType)
+    //     app.route('/CreateProductType').post(this.productTypeController.CreateProductType)
           
-        app.route('/getSubType').get(this.productSubTypeController.getSubType)
-        app.route('/getSubTypeByType/:typeId').get(this.productSubTypeController.getSubTypeByType)
-        app.route('/CreateSubType').post(this.productSubTypeController.CreateSubType)
+    //     app.route('/getSubType').get(this.productSubTypeController.getSubType)
+    //     app.route('/getSubTypeByType/:typeId').get(this.productSubTypeController.getSubTypeByType)
+    //     app.route('/CreateSubType').post(this.productSubTypeController.CreateSubType)
         
-        app.route('/getKind').get(this.kindController.getKind)
-        app.route('/CreateKind').post(this.kindController.CreateKind)
+    //     app.route('/getKind').get(this.kindController.getKind)
+    //     app.route('/CreateKind').post(this.kindController.CreateKind)
      
-        app.route('/getSubKind').get(this.kindController.getSubKind)
-        app.route('/getSubKindByKind/:kind').get(this.kindController.getSubKindByKind)
-        app.route('/CreateSubKind').post(this.kindController.CreateSubKind)
+    //     app.route('/getSubKind').get(this.kindController.getSubKind)
+    //     app.route('/getSubKindByKind/:kind').get(this.kindController.getSubKindByKind)
+    //     app.route('/CreateSubKind').post(this.kindController.CreateSubKind)
         
-        app.route('/getWeightUnits').get(this.unitController.getWeight)
-        app.route('/createWeightUnit').post(this.unitController.createWeight)
+    //     app.route('/getWeightUnits').get(this.unitController.getWeight)
+    //     app.route('/createWeightUnit').post(this.unitController.createWeight)
+          
+    //     app.route('/getManufacturer').get(this.unitController.getWeight)
+    //     app.route('/createManufacturer').post(this.unitController.createWeight)
           
         
           }
