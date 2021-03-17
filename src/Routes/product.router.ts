@@ -5,6 +5,7 @@ import {ProductTypeController} from "../controller/productType.controller";
 import {ProductSubTypeController} from "../controller/productSubType.controller";
 import {KindController} from "../controller/kind.controller";
 import {WeightUnitCobtroller} from "../controller/WeightUnit.controller";
+import {ProductController} from "../controller/product.controller";
 import { Router } from 'express';
 
 let manufacturerController=new ManufacturerController()
@@ -14,6 +15,7 @@ let productTypeController=new ProductTypeController();
 let productSubTypeController=new ProductSubTypeController();
 let kindController=new KindController();
 let weightUnitCobtroller=new WeightUnitCobtroller();
+let productController=new ProductController();
 const productRouter = Router();
 
 
@@ -49,6 +51,8 @@ productRouter.post('/createManufacturer',manufacturerController.CreateManufactur
 productRouter.get('/getBrand',manufacturerController.getBarand)
 productRouter.get('/getBrandByManufacturer/:manufacturer',manufacturerController.getBarandsByManufacturer)
 productRouter.post('/createBrand',manufacturerController.createBrand)
+  
+productRouter.post('/createProduct',productController.createProduct)
   
 
 

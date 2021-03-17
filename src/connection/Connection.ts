@@ -10,6 +10,7 @@ import Kind from "../entity/Kind";
 import SubKind from "../entity/SubKind";
 import {Manufacturer} from "../entity/Manufacturer";
 import {Brand} from "../entity/Brand";
+import {Product} from "../entity/Product";
 
 
 import {WeightUnit} from "../entity/WeightUnit"
@@ -29,6 +30,7 @@ export const connection = createConnection({
         WeightUnit,
         Manufacturer,
         Brand,
+        Product
     ],
     synchronize: true,
     logging: false
