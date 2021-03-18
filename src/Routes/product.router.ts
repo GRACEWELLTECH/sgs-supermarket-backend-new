@@ -22,11 +22,13 @@ const productRouter = Router();
 
 productRouter.get('/catageory',categoryController.getCategory)
 productRouter.post('/createCatageory',categoryController.CreateCategory)
+productRouter.put('/updateCategory/:id',categoryController.updateCategory)
 
 
 productRouter.get('/subcategory',subCategoryController.getSubCategory)
 productRouter.get('/subcategorybyCategory/:categoryId',subCategoryController.getSubCategorybyCategory)
 productRouter.post('/createSubcategory',subCategoryController.createSubCategory)
+productRouter.put('/updateSubCategory/:id',subCategoryController.updateSubCategory)
   
 productRouter.get('/getProductType',productTypeController.getProductType)
 productRouter.post('/CreateProductType',productTypeController.CreateProductType)
@@ -53,7 +55,9 @@ productRouter.get('/getBrandByManufacturer/:manufacturer',manufacturerController
 productRouter.post('/createBrand',manufacturerController.createBrand)
   
 productRouter.get('/getProductList',productController.getProductList)
+productRouter.get('/getProduct/:id',productController.getProductById)
 productRouter.post('/createProduct',productController.createProduct)
+
   
 
 

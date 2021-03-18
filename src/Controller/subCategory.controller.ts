@@ -46,6 +46,20 @@ export class SubCategoryController{
                 }); 
       
     }
+    async updateSubCategory(req, res,next) {
+        try{
+            let catRepo=getRepository(SubCategory);
+            let CatagoryToUpdate=await catRepo.findOne(req.params.id);
+            CatagoryToUpdate.SubCategoryName=req.body.CategoryName;
+            CatagoryToUpdate.category=req.body.category;
+            await catRepo.save(CatagoryToUpdate)
+            res.json(CatagoryToUpdate);
+        }
+           catch(error){
+                console.error("Error ", error);
+                res.json(error);
+            }; 
+    }
 }
 
 

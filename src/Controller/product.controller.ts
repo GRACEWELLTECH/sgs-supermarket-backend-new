@@ -17,6 +17,18 @@ export class ProductController{
                 }); 
       
     }
+    async getProductById(req, res,next) {
+      connection
+                .then(async connection => {
+                    const foundProduct: Product = await connection.manager.findOne(Product,{id:req.params.id});
+                    res.json(foundProduct);
+                })
+                .catch(error => {
+                    console.error("Error ", error);
+                    res.json(error);
+                }); 
+      
+    }
     async createProduct(req, res,next) {
      
         let product = req.body
