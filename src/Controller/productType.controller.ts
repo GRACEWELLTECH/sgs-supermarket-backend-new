@@ -18,11 +18,14 @@ export class ProductTypeController{
       
     }
     async CreateProductType(req, res,next) {
+        console.log(" req.body",req.body)
+
       connection
                 .then(async connection => {
                    
                     let Type = new ProductType()
                     Type.typeName = req.body.typeName;
+                    Type.subCategory = req.body.subCategory;
 
                     await connection.manager.save(Type);
                 res.json({message: "Successfully Saved."})

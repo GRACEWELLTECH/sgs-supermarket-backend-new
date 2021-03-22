@@ -1,5 +1,6 @@
-import {Column, Entity, ManyToOne, PrimaryGeneratedColumn} from "typeorm";
+import {Column, Entity, ManyToOne,OneToMany, PrimaryGeneratedColumn} from "typeorm";
 import {Category} from "./Category";
+import {ProductType} from "./ProductType";
 
 @Entity()
 export class SubCategory {
@@ -7,7 +8,10 @@ export class SubCategory {
     public id: number;
     @Column()
     public SubCategoryName: string;    
-      
+    
+    @OneToMany(() => ProductType,(productType) => productType.subCategory)
+    public ProductType: ProductType[]; 
+
     @ManyToOne(() => Category, (category) => category.subCategories,{eager: true, cascade: true})
     public category: Category;
 }

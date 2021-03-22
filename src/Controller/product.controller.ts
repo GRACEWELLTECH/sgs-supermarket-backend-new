@@ -92,6 +92,70 @@ export class ProductController{
                 }); 
       
     }
+    async updateProduct(req, res,next) {
+        try{
+       
+        let productrepo= getRepository(Product);
+        let product = req.body;
+        console.log("body",product)
+        let selectedProduct=await productrepo.findOne(req.params.id);
+        
+
+            selectedProduct.productName=product.productName;
+            selectedProduct.shortName=product.shortName;
+            selectedProduct.weight=product.weight;
+            selectedProduct.weightUnit=product.weightUnit;
+            selectedProduct.category=product.category;
+            selectedProduct.subCategory=product.subCategory;
+            selectedProduct.type=product.type;
+            selectedProduct.subType=product.subType;
+            selectedProduct.kind=product.kind;
+            selectedProduct.subKind=product.subKind;
+            selectedProduct.manufacturer=product.manufacturer;
+            selectedProduct.brand=product.brand;
+            selectedProduct.distributerType=product.distributerType;
+            selectedProduct.agency=product.agency;
+            selectedProduct.purcheaser=product.purcheaser;
+            selectedProduct.active=product.active;
+            selectedProduct.GST=product.GST;
+            selectedProduct.hsnNumber=product.hsnNumber;
+            selectedProduct.preparationStatus=product.preparationStatus;
+            selectedProduct.bulkProduct=product.bulkProduct?product.bulkProduct:"";
+            selectedProduct.rePackageWeight=product.rePackageWeight?product.rePackageWeight:0;
+            selectedProduct.allowDecimal=product.allowDecimal;
+            selectedProduct.numberOfDecimalPoints=product.numberOfDecimalPoints;
+            selectedProduct.alowNegativeStock=product.alowNegativeStock;
+            selectedProduct.alowSellingStockEdit=product.alowSellingStockEdit;
+            selectedProduct.allowLoyalty=product.allowLoyalty;
+            selectedProduct.allowMRPSelection=product.allowMRPSelection;
+            selectedProduct.maintainExpDate=product.maintainExpDate;
+            selectedProduct.sellingRateLessthenLandingCost=product.sellingRateLessthenLandingCost;
+            selectedProduct.maintainSellingRateBy=product.maintainSellingRateBy?product.maintainSellingRateBy:"";
+            selectedProduct.minimumSellingQuantity=product.minimumSellingQuantity?product.minimumSellingQuantity:0;
+            selectedProduct.curserDefaultFocusIn=product.curserDefaultFocusIn?product.curserDefaultFocusIn:"";
+            selectedProduct.barcodeGenerationProfile=product.barcodeGenerationProfile?product.barcodeGenerationProfile:"";
+            selectedProduct.applicableForOnlineSale=product.applicableForOnlineSale;
+            selectedProduct.color=product.color;
+            selectedProduct.onlineType=product.onlineType;
+            selectedProduct.allowExchange=product.allowExchange;
+            selectedProduct.warrenty=product.warrenty;
+            selectedProduct.warrentyUnit=product.warrentyUnit;
+            selectedProduct.masterGodownStackMin=product.masterGodownStackMin;
+            selectedProduct.masterGodownStackMax=product.masterGodownStackMax;
+            selectedProduct.storeStackMin=product.storeStackMin;
+            selectedProduct.storeStackMax=product.storeStackMax;
+            selectedProduct.rackStackMin=product.rackStackMin;
+            selectedProduct.rackStackMax=product.rackStackMax;
+            
+           await  productrepo.save(selectedProduct)
+
+            res.send({status:200,message:"Updated Successfully"})
+                 
+        }catch (err) {
+            res.send({status:400,error:err.message});
+        }
+        
+    }
 }
 
 

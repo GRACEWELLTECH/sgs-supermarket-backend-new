@@ -57,6 +57,7 @@ productRouter.post('/createBrand',manufacturerController.createBrand)
 productRouter.get('/getProductList',productController.getProductList)
 productRouter.get('/getProduct/:id',productController.getProductById)
 productRouter.post('/createProduct',productController.createProduct)
+productRouter.put('/updateProduct/:id',productController.updateProduct)
 
   
 
