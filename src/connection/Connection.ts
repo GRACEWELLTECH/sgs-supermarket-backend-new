@@ -19,9 +19,9 @@ export const connection = createConnection({
      type: "mysql",
     host: "localhost",
     port: 3306,
-    username: "abinesh",
-    password: "Passw0rd",
-    database: "mydb",
+    username: "gracewell",
+    password: "12345",
+    database: "sgs_market",
     entities: [
         Category,SubCategory,
         SuperHero,Power,
