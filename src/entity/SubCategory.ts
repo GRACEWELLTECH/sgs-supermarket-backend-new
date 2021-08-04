@@ -12,7 +12,7 @@ export class SubCategory {
     @OneToMany(() => ProductType,(productType) => productType.subCategory)
     public ProductType: ProductType[]; 
 
-    @ManyToOne(() => Category, (category) => category.subCategories,{eager: true, cascade: true})
+    @ManyToOne(() => Category, (category) => category.subCategories)
     public category: Category;
 }
 export default SubCategory;

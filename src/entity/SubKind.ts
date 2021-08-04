@@ -8,7 +8,7 @@ export class SubKind {
     @Column()
     public SubKindName: string;    
       
-    @ManyToOne(() => Kind, (Kind) => Kind.subKinds,{eager: true, cascade: true})
+    @ManyToOne(() => Kind, (Kind) => Kind.subKinds)
     public kind: Kind;
 }
 export default SubKind;

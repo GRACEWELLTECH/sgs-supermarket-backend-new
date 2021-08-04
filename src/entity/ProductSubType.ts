@@ -1,5 +1,6 @@
-import {Column, Entity, ManyToOne, PrimaryGeneratedColumn} from "typeorm";
+import {Column, Entity, ManyToOne,OneToMany, PrimaryGeneratedColumn} from "typeorm";
 import {ProductType} from "./ProductType";
+import {Kind} from "./Kind";
 
 @Entity()
 export class ProductSubType {
@@ -8,7 +9,10 @@ export class ProductSubType {
     @Column()
     public SubTypeName: string;    
       
-    @ManyToOne(() => ProductType, (productType) => productType.SubType,{eager: true, cascade: true})
+    @ManyToOne(() => ProductType, (productType) => productType.SubType)
     public productType: ProductType;
+    
+    @OneToMany(()=>Kind,(kind)=>kind.id)
+    public kind:Kind[]
 }
 export default ProductSubType;

@@ -38,7 +38,7 @@ class App {public app: express.Application;
         this.routePrv = new Routes();
         this.routePrv.routes(this.app);
 
-        this.app.listen(3000, () => {
+        this.app.listen(3001, () => {
             console.log('Server started');
           });
     }

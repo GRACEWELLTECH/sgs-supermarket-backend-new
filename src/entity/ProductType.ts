@@ -9,7 +9,7 @@ export class ProductType {
     @Column()
     public typeName: string;
 
-    @ManyToOne(() => SubCategory, (subCategory) => subCategory.id,{eager: true, cascade: true})
+    @ManyToOne(() => SubCategory, (subCategory) => subCategory.id)
     public subCategory: SubCategory;  
 
     @OneToMany(() => ProductSubType,(productSubType) => productSubType.productType)

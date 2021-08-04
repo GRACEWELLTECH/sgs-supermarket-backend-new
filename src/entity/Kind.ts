@@ -1,5 +1,6 @@
-import {Column, Entity, OneToMany, PrimaryGeneratedColumn} from "typeorm";
+import {Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn} from "typeorm";
 import{SubKind} from './SubKind'
+import{ProductSubType} from './ProductSubType'
 
 @Entity()
 export class Kind {
@@ -9,5 +10,7 @@ export class Kind {
     public KindName: string;    
     @OneToMany(() => SubKind,(subKind) => subKind.kind)
     public subKinds: SubKind[];
+    @ManyToOne(()=>ProductSubType,(productSubType)=>productSubType.kind)
+    subType:ProductSubType
 }
 export default Kind;
