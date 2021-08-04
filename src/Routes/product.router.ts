@@ -1,11 +1,11 @@
-import {ManufacturerController} from "../controller/manufactur.controller";
-import {CategoryController} from "../controller/category.controller";
-import {SubCategoryController} from "../controller/subCategory.controller";
-import {ProductTypeController} from "../controller/productType.controller";
-import {ProductSubTypeController} from "../controller/productSubType.controller";
-import {KindController} from "../controller/kind.controller";
-import {WeightUnitCobtroller} from "../controller/WeightUnit.controller";
-import {ProductController} from "../controller/product.controller";
+import {ManufacturerController} from "../Controller/manufactur.controller";
+import {CategoryController} from "../Controller/category.controller";
+import {SubCategoryController} from "../Controller/subCategory.controller";
+import {ProductTypeController} from "../Controller/productType.controller";
+import {ProductSubTypeController} from "../Controller/productSubType.controller";
+import {KindController} from "../Controller/kind.controller";
+import {WeightUnitCobtroller} from "../Controller/WeightUnit.controller";
+import {ProductController} from "../Controller/product.controller";
 import { Router } from 'express';
 
 let manufacturerController=new ManufacturerController()

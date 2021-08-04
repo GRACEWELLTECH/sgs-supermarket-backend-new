@@ -1,11 +1,11 @@
 import {Request, Response} from "express";
-import {Controller} from "../controller/Controller";
-import {CategoryController} from "../controller/category.controller";
-import {SubCategoryController} from "../controller/subCategory.controller";
-import {ProductTypeController} from "../controller/productType.controller";
-import {ProductSubTypeController} from "../controller/productSubType.controller";
-import {KindController} from "../controller/kind.controller";
-import {WeightUnitCobtroller} from "../controller/WeightUnit.controller";
+import {Controller} from "../Controller/Controller";
+import {CategoryController} from "../Controller/category.controller";
+import {SubCategoryController} from "../Controller/subCategory.controller";
+import {ProductTypeController} from "../Controller/productType.controller";
+import {ProductSubTypeController} from "../Controller/productSubType.controller";
+import {KindController} from "../Controller/kind.controller";
+import {WeightUnitCobtroller} from "../Controller/WeightUnit.controller";
 import * as express from "express";
 class Routes {    
      
