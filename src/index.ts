@@ -17,7 +17,7 @@ import bodyParser = require("body-parser");
 import routes from './routes';
 class App {public app: express.Application;
     
-    public routePrv: Routes;
+    // public routePrv: Routes;
     
     constructor() {// initializing express in this application
         this.app = express();// support application/json type post data
@@ -35,8 +35,8 @@ class App {public app: express.Application;
         });
        
         this.app.use('/api',routes)
-        this.routePrv = new Routes();
-        this.routePrv.routes(this.app);
+        // this.routePrv = new Routes();
+        // this.routePrv.routes(this.app);
 
         this.app.listen(3001, () => {
             console.log('Server started');
