@@ -14,7 +14,7 @@ import * as express from 'express'
 // import {Routes} from './routes/Routes';
 import bodyParser = require("body-parser");
 
-import routes from './routes';
+import routes from './Routes/index';
 class App {public app: express.Application;
     
     // public routePrv: Routes;
