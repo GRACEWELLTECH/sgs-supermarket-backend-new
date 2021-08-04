@@ -21,7 +21,7 @@ export const connection = createConnection({
     port: 3306,
     username: "abinesh",
     password: "Passw0rd",
-    database: "mydb",
+    database: "sgs_db",
     entities: [
         Category,SubCategory,
         SuperHero,Power,

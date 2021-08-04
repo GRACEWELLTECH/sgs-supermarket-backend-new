@@ -5,7 +5,7 @@
    "port": 3306,
    "username": "abinesh",
     "password": "Passw0rd",
-    "database": "mydb",
+    "database": "sgs_db",
    "synchronize": true,
    "logging": false,
    "migrationsTableName": "migrations",
