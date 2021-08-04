@@ -11,7 +11,7 @@
 //   });
 
 import * as express from 'express'
-import {Routes} from './routes/Routes';
+// import {Routes} from './routes/Routes';
 import bodyParser = require("body-parser");
 
 import routes from './routes';
