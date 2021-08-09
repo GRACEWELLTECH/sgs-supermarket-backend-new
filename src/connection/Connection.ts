@@ -1,5 +1,6 @@
 import {createConnection} from "typeorm";
 
+
 import SuperHero from "../entity/SuperHero";
 import Power from "../entity/Power";
 import Category from "../entity/Category";
@@ -13,7 +14,15 @@ import {Brand} from "../entity/Brand";
 import {Product} from "../entity/Product";
 
 
-import {WeightUnit} from "../entity/WeightUnit"
+import {WeightUnit} from "../entity/WeightUnit";
+
+/*Inventory Section 
+import assemblykit_create from "../entity/Inventory/assemblykit_create";*/
+import {assemblykit} from "../entity/Inventory/assemblykit_create"
+import {changeselling} from "../entity/Inventory/changeselling"
+
+/*Purchase Section */
+import {DistributorMaster} from "../entity/Purchase/DistributorMaster"
 
 export const connection = createConnection({
      type: "mysql",
@@ -30,7 +39,9 @@ export const connection = createConnection({
         WeightUnit,
         Manufacturer,
         Brand,
-        Product
+        Product,
+
+        assemblykit,changeselling, DistributorMaster
     ],
     synchronize: true,
     logging: false
