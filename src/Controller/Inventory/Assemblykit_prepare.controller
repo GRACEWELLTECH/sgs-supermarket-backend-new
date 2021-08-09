@@ -1,0 +1,39 @@
+prepareAssemblyKit
+import {Request, Response} from 'express';
+import {connection} from "../connection/Connection";
+import {getRepository} from "typeorm";
+
+import {assemblykit_prepare} from "../entity/Inventory/assemblykit_create"
+
+export class assemblykitprepareController{
+    async getAsmKitprepare(req, res,next) {
+      connection
+                .then(async connection => {
+                    const AsmKitprepareList: assemblykit_prepare[] = await connection.manager.find(assemblykit_prepare);
+                    res.json(AsmKitprepareList);
+                })
+                .catch(error => {
+                    console.error("Error ", error);
+                    res.json(error);
+                }); 
+      
+    }
+    async createAsmKitCreate(req, res,next) {
+      connection
+                .then(async connection => {
+                    console.log(req.body)
+                    let Type = new assemblykit_prepare()
+                    Type.SelectAssemblyNameForAssembly = req.body.SelectAssemblyNameForAssembly
+                 
+                    await connection.manager.save(Type);
+                res.json({message: "Successfully Saved."})
+                })
+                .catch(error => {
+                    console.error("Error ", error);
+                    res.json(error);
+                }); 
+      
+    }
+}
+
+
