@@ -64,8 +64,8 @@ productRouter.put('/updateProduct/:id',productController.updateProduct)
 //GST Master Service
 
 productRouter.post('/createGst',gstController.CreateGst)
-productRouter.post('/getAllGst',gstController.getAllGst)
-productRouter.post('/getActiveGst',gstController.getActiveGst)
+productRouter.get('/getAllGst',gstController.getAllGst)
+productRouter.get('/getActiveGst',gstController.getActiveGst)
   
 
 
