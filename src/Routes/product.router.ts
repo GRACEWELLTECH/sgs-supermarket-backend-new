@@ -6,6 +6,7 @@ import {ProductSubTypeController} from "../Controller/productSubType.controller"
 import {KindController} from "../Controller/kind.controller";
 import {WeightUnitCobtroller} from "../Controller/WeightUnit.controller";
 import {ProductController} from "../Controller/product.controller";
+import {GstController} from "../Controller/GstController";
 import { Router } from 'express';
 
 let manufacturerController=new ManufacturerController()
@@ -16,6 +17,7 @@ let productSubTypeController=new ProductSubTypeController();
 let kindController=new KindController();
 let weightUnitCobtroller=new WeightUnitCobtroller();
 let productController=new ProductController();
+let gstController=new GstController();
 const productRouter = Router();
 
 
@@ -59,6 +61,11 @@ productRouter.get('/getProduct/:id',productController.getProductById)
 productRouter.post('/createProduct',productController.createProduct)
 productRouter.put('/updateProduct/:id',productController.updateProduct)
 
+//GST Master Service
+
+productRouter.post('/createGst',gstController.CreateGst)
+productRouter.post('/getAllGst',gstController.getAllGst)
+productRouter.post('/getActiveGst',gstController.getActiveGst)
   
 
 
