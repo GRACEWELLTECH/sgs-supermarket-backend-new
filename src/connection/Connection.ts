@@ -12,6 +12,7 @@ import {Manufacturer} from "../entity/Manufacturer";
 import {Brand} from "../entity/Brand";
 import {Product} from "../entity/Product";
 import {Gst} from "../entity/Gst";
+import {ItemVsEan} from "../entity/Inventory/ItemVsEan";
 
 import {WeightUnit} from "../entity/WeightUnit"
 
@@ -24,13 +25,15 @@ export const connection = createConnection({
     database: "sgs_db",
     entities: [
         Category,SubCategory,
-        SuperHero,Power,
         ProductType,ProductSubType,
         Kind,SubKind,
         WeightUnit,
         Manufacturer,
         Brand,
-        Product,Gst
+        Product,Gst,
+
+        //inventoary
+        ItemVsEan
     ],
     synchronize: true,
     logging: false
