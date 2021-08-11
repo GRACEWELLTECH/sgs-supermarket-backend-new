@@ -13,6 +13,7 @@ import {Brand} from "../entity/Brand";
 import {Product} from "../entity/Product";
 import {Gst} from "../entity/Gst";
 import {ItemVsEan} from "../entity/Inventory/ItemVsEan";
+import {HsnVsGst} from "../entity/Inventory/HsnVsGst";
 
 import {WeightUnit} from "../entity/WeightUnit"
 
@@ -33,7 +34,8 @@ export const connection = createConnection({
         Product,Gst,
 
         //inventoary
-        ItemVsEan
+        ItemVsEan,
+        HsnVsGst
     ],
     synchronize: true,
     logging: false

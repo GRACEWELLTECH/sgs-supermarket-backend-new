@@ -12,7 +12,7 @@ export class Variant{
     id: number;
 
     @Column({unique: true})
-    Name: string;ng
+    Name: string;
 
     @Column()
     type: string;
