@@ -10,6 +10,9 @@ export class DistributorMaster {
     ApprovalRequired: boolean;
 
     @Column()
+    limit: number;
+
+    @Column()
     Name: string;
 
     @Column()
