@@ -36,6 +36,7 @@ export class KindController{
                     console.log(req.body)
                     let saveData = new Kind()
                     saveData.KindName = req.body.KindName
+                    saveData.subType = req.body.subType
                     await connection.manager.save(saveData);
                 res.json({message: "Successfully Saved."})
                 })
