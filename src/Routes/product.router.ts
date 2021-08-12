@@ -41,10 +41,11 @@ productRouter.get('/getSubTypeByType/:typeId',productSubTypeController.getSubTyp
 productRouter.post('/CreateSubType',productSubTypeController.CreateSubType)
 
 productRouter.get('/getKind',kindController.getKind)
+productRouter.get('/getKindBySubType',kindController.getKind)
 productRouter.post('/CreateKind',kindController.CreateKind)
 
 productRouter.get('/getSubKind',kindController.getSubKind)
-productRouter.get('/getSubKindByKind/:kind',kindController.getSubKindByKind)
+productRouter.get('/getSubKindByKind/:id',kindController.getKindBuSubType)
 productRouter.post('/CreateSubKind',kindController.CreateSubKind)
 
 productRouter.get('/getWeightUnits',weightUnitCobtroller.getWeight)

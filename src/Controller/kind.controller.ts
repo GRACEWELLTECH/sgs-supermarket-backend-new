@@ -18,6 +18,18 @@ export class KindController{
                 }); 
       
     }
+    async getKindBuSubType(req, res,next) {
+      connection
+                .then(async connection => {
+                    const CategoryList: Kind[] = await connection.manager.find(Kind,{where:{subType:req.params.id}});
+                    res.json(CategoryList);
+                })
+                .catch(error => {
+                    console.error("Error ", error);
+                    res.json(error);
+                }); 
+      
+    }
     async CreateKind(req, res,next) {
       connection
                 .then(async connection => {
