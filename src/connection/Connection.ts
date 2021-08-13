@@ -15,10 +15,10 @@ import {Gst} from "../entity/Gst";
 import {ItemVsEan} from "../entity/Inventory/ItemVsEan";
 import {HsnVsGst} from "../entity/Inventory/HsnVsGst";
 import {Distributor} from "../entity/Purchase/Distributer/DistributorMaster";
-// import {DistributerDeliveryPersion} from "../entity/Purchase/Distributer/DistributerDeliveryPerson";
-// import {DistributerLandline} from "../entity/Purchase/Distributer/DistributerLandline";
-// import {DistributerMail} from "../entity/Purchase/Distributer/DistributerMail";
-// import {DistributerSalesPersion} from "../entity/Purchase/Distributer/DistributerSalespersion";
+import {DistributerDeliveryPersion} from "../entity/Purchase/Distributer/DistributerDeliveryPerson";
+import {DistributerLandline} from "../entity/Purchase/Distributer/DistributerLandline";
+import {DistributerMail} from "../entity/Purchase/Distributer/DistributerMail";
+import {DistributerSalesPersion} from "../entity/Purchase/Distributer/DistributerSalespersion";
 import {OrderVsDelivery} from "../entity/Purchase/Distributer/OrderVsDelivery";
 
 import {WeightUnit} from "../entity/WeightUnit"
@@ -45,8 +45,8 @@ export const connection = createConnection({
 
         //purchease 
         Distributor,
-        // DistributerDeliveryPersion,DistributerLandline,DistributerMail,
-        // DistributerSalesPersion,
+        DistributerDeliveryPersion,DistributerLandline,DistributerMail,
+        DistributerSalesPersion,
         OrderVsDelivery
     ],
     synchronize: true,
