@@ -13,7 +13,7 @@ export class DistributorMasterController{
     async getDistributorMaster(req, res,next) {
      
         let repo=getRepository(Distributor);
-        repo.find({relations:['landline','email','deliveryPerson','OrderVsDelivery']}).then(list=>{
+        repo.find({relations:['landline','email','deliveryPerson','orderVsDeliveryType']}).then(list=>{
             res.status(200).json({data:list});
             next();
         }).catch(error=>{
