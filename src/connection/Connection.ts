@@ -18,10 +18,11 @@ import {Distributor} from "../entity/Purchase/Distributer/DistributorMaster";
 import {DistributerDeliveryPersion} from "../entity/Purchase/Distributer/DistributerDeliveryPerson";
 import {DistributerLandline} from "../entity/Purchase/Distributer/DistributerLandline";
 import {DistributerMail} from "../entity/Purchase/Distributer/DistributerMail";
-import {DistributerSalesPersion} from "../entity/Purchase/Distributer/DistributerSalespersion";
-import {OrderVsDelivery} from "../entity/Purchase/Distributer/OrderVsDelivery";
-
 import {WeightUnit} from "../entity/WeightUnit"
+import {OrderVsDelivery} from "../entity/Purchase/Distributer/OrderVsDelivery";
+import {DistributerSalesPersion} from "../entity/Purchase/Distributer/DistributerSalespersion";
+
+
 
 export const connection = createConnection({
      type: "mysql",
