@@ -11,6 +11,6 @@ export class Kind {
     @OneToMany(() => SubKind,(subKind) => subKind.kind)
     public subKinds: SubKind[];
     @ManyToOne(()=>ProductSubType,(productSubType)=>productSubType.kind)
-    subType:ProductSubType
+    subType:number
 }
 export default Kind;
