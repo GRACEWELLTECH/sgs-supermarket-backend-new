@@ -18,6 +18,6 @@ export class DistributerSalesPersion{
     whatsapp:string;
 
     @ManyToOne(()=>Distributor,(distributor)=>distributor.id)
-    distributer:Distributor
+    distributer:number
 
 }
