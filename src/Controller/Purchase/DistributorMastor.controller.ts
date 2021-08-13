@@ -33,7 +33,7 @@ export class DistributorMasterController{
                     Type.pincode = req.body.pincode
                     Type.place = req.body.place
                     Type.state = req.body.state
-                    Type.country = req.body.Country
+                    Type.country = req.body.country
                     Type.inventoryType = req.body.inventoryType
                     Type.gstType = req.body.gstType
                     Type.purchase = req.body.purchase
