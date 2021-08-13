@@ -20,7 +20,7 @@ import {DistributerLandline} from "../entity/Purchase/Distributer/DistributerLan
 import {DistributerMail} from "../entity/Purchase/Distributer/DistributerMail";
 import {WeightUnit} from "../entity/WeightUnit"
 import {OrderVsDelivery} from "../entity/Purchase/Distributer/OrderVsDelivery";
-import {DistributerSalesPersion} from "../entity/Purchase/Distributer/DistributerSalespersion";
+// import {DistributerSalesPersion} from "../entity/Purchase/Distributer/DistributerSalespersion";
 
 
 
@@ -49,7 +49,7 @@ export const connection = createConnection({
         DistributerDeliveryPersion,
         DistributerLandline,
         DistributerMail,
-        DistributerSalesPersion,
+        // DistributerSalesPersion,
         OrderVsDelivery
     ],
     synchronize: true,
