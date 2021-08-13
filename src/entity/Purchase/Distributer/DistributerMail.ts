@@ -9,7 +9,7 @@ export class DistributerMail{
     id:number;
 
     @Column()
-    mail:string;
+    email:string;
 
     @ManyToOne(()=>Distributor,(distributor)=>distributor.id)
     distributer:Distributor
