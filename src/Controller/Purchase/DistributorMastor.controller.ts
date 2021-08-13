@@ -4,7 +4,7 @@ import {getRepository} from "typeorm";
 
 import {Distributor} from "../../entity/Purchase/Distributer/DistributorMaster"
 import {DistributerDeliveryPersion} from "../../entity/Purchase/Distributer/DistributerDeliveryPerson"
-import {DistributerSalesPersion} from "../../entity/Purchase/Distributer/DistributerSalespersion"
+// import {DistributerSalesPersion} from "../../entity/Purchase/Distributer/DistributerSalespersion"
 import {DistributerLandline} from "../../entity/Purchase/Distributer/DistributerLandline"
 import {DistributerMail} from "../../entity/Purchase/Distributer/DistributerMail"
 import {OrderVsDelivery} from "../../entity/Purchase/Distributer/OrderVsDelivery"
@@ -42,7 +42,7 @@ export class DistributorMasterController{
                     Type.orderVsDeliveryType = req.body.orderVsDeliveryType
                  
                     let repo=getRepository(Distributor)
-                    let salesRepo=getRepository(DistributerSalesPersion)
+                    // let salesRepo=getRepository(DistributerSalesPersion)
                     let deleveryRepo=getRepository(DistributerDeliveryPersion)
                     let mailrepo=getRepository(DistributerMail)
                     let landlineRepo=getRepository(DistributerLandline)
@@ -69,15 +69,15 @@ export class DistributorMasterController{
                         })
                         await landlineRepo.save(landlineArray)
 
-                        let salesArray:DistributerSalesPersion[]=[];
-                        req.body.salesPerson.forEach(sales=>{
-                            let newSale=new DistributerSalesPersion();
+                        // let salesArray:DistributerSalesPersion[]=[];
+                        // req.body.salesPerson.forEach(sales=>{
+                        //     let newSale=new DistributerSalesPersion();
 
-                            newSale={...sales,distributer:distributer.id}
-                            salesArray.push(newSale);
-                        })
+                        //     newSale={...sales,distributer:distributer.id}
+                        //     salesArray.push(newSale);
+                        // })
 
-                        await salesRepo.save(salesArray)
+                        // await salesRepo.save(salesArray)
 
                         let deliveryArray:DistributerDeliveryPersion[]=[];
                         req.body.deliveryPerson.forEach(delivery=>{

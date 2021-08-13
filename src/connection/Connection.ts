@@ -46,7 +46,9 @@ export const connection = createConnection({
 
         //purchease 
         Distributor,
-        DistributerDeliveryPersion,DistributerLandline,DistributerMail,
+        DistributerDeliveryPersion,
+        DistributerLandline,
+        DistributerMail,
         DistributerSalesPersion,
         OrderVsDelivery
     ],

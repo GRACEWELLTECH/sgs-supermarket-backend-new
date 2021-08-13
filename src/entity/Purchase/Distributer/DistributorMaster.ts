@@ -2,7 +2,7 @@ import { Entity, PrimaryGeneratedColumn, Column,OneToMany } from "typeorm";
 
 import {DistributerMail} from './DistributerMail'
 import {DistributerLandline} from './DistributerLandline'
-import {DistributerSalesPersion} from './DistributerSalespersion'
+// import {DistributerSalesPersion} from './DistributerSalespersion'
 import {DistributerDeliveryPersion} from './DistributerDeliveryPerson'
 import {OrderVsDelivery} from './OrderVsDelivery'
 
@@ -61,8 +61,8 @@ export class Distributor {
     deliveryPerson: DistributerLandline[];
 
 
-    @OneToMany(()=>DistributerSalesPersion,(sales)=>sales.distributer)
-    salesPerson: DistributerSalesPersion[];
+    // @OneToMany(()=>DistributerSalesPersion,(sales)=>sales.distributer)
+    // salesPerson: DistributerSalesPersion[];
 
    
     @OneToMany(()=>DistributerMail,(mail)=>mail.distributer)
