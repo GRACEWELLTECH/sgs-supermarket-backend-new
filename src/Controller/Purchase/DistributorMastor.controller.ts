@@ -26,6 +26,7 @@ export class DistributorMasterController{
                    
                     let Type = new Distributor()
                     Type.approvalRequired = req.body.approvalRequired
+                    Type.limit = req.body.limit
                     Type.name = req.body.name
                     Type.alternateName = req.body.alternateName
                     Type.address = req.body.address
