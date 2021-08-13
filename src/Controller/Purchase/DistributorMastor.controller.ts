@@ -32,7 +32,7 @@ export class DistributorMasterController{
                     Type.pincode = req.body.pincode
                     Type.place = req.body.place
                     Type.state = req.body.state
-                    Type.Country = req.body.Country
+                    Type.country = req.body.Country
                     Type.inventoryType = req.body.inventoryType
                     Type.gstType = req.body.gstType
                     Type.purchase = req.body.purchase
@@ -103,7 +103,7 @@ export class DistributorMasterController{
                         res.status(200).json({message:"Data saved Successfully"})
 
                     }).catch(error => {
-                        res.status(400).json({message:"Data saved Successfully"})
+                        res.status(400).json({error:error})
 
                     })
       
