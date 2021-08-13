@@ -11,8 +11,8 @@ export class DistributerLandline{
     @Column()
     landline:string;
 
-    // @Column()
-    // mobile:string;
+    @ManyToOne(()=>Distributor,(distributor)=>distributor.id)
+    distributer:Distributor
 
     // @Column()
     // whatsapp:string;

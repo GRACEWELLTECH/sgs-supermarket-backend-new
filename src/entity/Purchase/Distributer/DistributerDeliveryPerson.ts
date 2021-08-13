@@ -16,4 +16,8 @@ export class DistributerDeliveryPersion{
 
     @Column()
     whatsapp:string;
+
+    @ManyToOne(()=>Distributor,(distributor)=>distributor.id)
+    distributer:Distributor
+
 }

@@ -1,4 +1,10 @@
-import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column,OneToMany } from "typeorm";
+
+import {DistributerMail} from './DistributerMail'
+import {DistributerLandline} from './DistributerLandline'
+import {DistributerSalesPersion} from './DistributerSalespersion'
+import {DistributerDeliveryPersion} from './DistributerDeliveryPerson'
+import {OrderVsDelivery} from './OrderVsDelivery'
 
 @Entity()
 export class Distributor {
@@ -31,31 +37,9 @@ export class Distributor {
     state: string;
 
     @Column()
-    Country: string;
+    country: string;
 
-    @Column()
-    landline: number;
-
-    @Column()
-    salesPersonName: string;
-
-    @Column()
-    salesPersonMobile: number;
-
-    @Column()
-    salesPersonWhatsapp: number;
-
-    @Column()
-    deliveryPersonName: string;
-
-    @Column()
-    deliveryPersonMobile: number;
-
-    @Column()
-    deliveryPersonWhatsapp: number;
-
-    @Column()
-    email: string;
+    
 
     @Column()
     inventoryType: string;
@@ -66,10 +50,25 @@ export class Distributor {
     @Column()
     purchase: string;
 
-    @Column()
+    @Column({nullable: true})
     gstNumber: string;
 
-    @Column()
-    orderVsDeliveryType: string;
+
+    @OneToMany(()=>DistributerLandline,(landline)=>landline.distributer)
+    landline: DistributerLandline[];
+
+    @OneToMany(()=>DistributerDeliveryPersion,(delivery)=>delivery.distributer)
+    deliveryPerson: DistributerLandline[];
+
+
+    @OneToMany(()=>DistributerSalesPersion,(sales)=>sales.distributer)
+    salesPerson: DistributerSalesPersion[];
+
+   
+    @OneToMany(()=>DistributerMail,(mail)=>mail.distributer)
+    email: DistributerMail[];
+
+    @OneToMany(()=>OrderVsDelivery,(order)=>order.distributer)
+    orderVsDeliveryType: OrderVsDelivery[];
 }
 
