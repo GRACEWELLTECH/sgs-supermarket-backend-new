@@ -23,9 +23,8 @@ export class TransporterMasterController{
                     console.log(req.body)
                     let Type = new TransporterMaster()
                
-                    Type.NameTransporter
-                     = req.body.Name
-                    Type.Address = req.body.Address
+                    Type.nameTransporter  = req.body.nameTransporter
+                    Type.address = req.body.address
                 
                     await connection.manager.save(Type);
                 res.json({message: "Successfully Saved."})
