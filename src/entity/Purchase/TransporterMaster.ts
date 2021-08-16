@@ -13,3 +13,5 @@ export class TransporterMaster {
     address: string;
 
    }
+
+   export default TransporterMaster
