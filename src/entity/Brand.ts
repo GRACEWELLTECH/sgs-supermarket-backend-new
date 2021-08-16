@@ -6,9 +6,12 @@ export class Brand {
     @PrimaryGeneratedColumn()
     public id: number;
     @Column()
-    public BrandName: string;    
+    public BrandName: string; 
+
+    @Column()
+    public address: string;    
       
-    @ManyToOne(() => Manufacturer, (manufacturer) => manufacturer.brand,{eager: true, cascade: true})
-    public Manufacturer: Manufacturer;
+    // @ManyToOne(() => Manufacturer, (manufacturer) => manufacturer.brand,{eager: true, cascade: true})
+    // public Manufacturer: Manufacturer;
 }
 export default Brand;

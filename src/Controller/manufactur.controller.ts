@@ -4,6 +4,7 @@ import {getRepository} from "typeorm";
 
 import {Manufacturer} from "../entity/Manufacturer"
 import {Brand} from "../entity/Brand"
+import {ManufacyturerVsBrand} from "../entity/ManufacturerVsBrand"
 
 export class ManufacturerController{
     async getManufacturer(req, res,next) {
@@ -49,16 +50,13 @@ export class ManufacturerController{
       
     }
     async getBarandsByManufacturer(req, res,next) {
-      connection
-                .then(async connection => {
-                    const typeList: Brand[] = await connection.manager.find(Brand,{where:{Manufacturer:req.params.manufacturer}});
-                    res.json(typeList);
-                })
-                .catch(error => {
-                    console.error("Error ", error);
-                    res.json(error);
-                }); 
-      
+     let repo=getRepository(ManufacyturerVsBrand)
+      repo.find({where:{manufacturer:req.params.manufacturer}}).then((result) => {
+
+        return res.status(200).json({data:result});
+      }).catch((error) => {
+        return res.status(400).json({error:error});
+      })
     }
     async createBrand(req, res,next) {
       connection
@@ -66,7 +64,7 @@ export class ManufacturerController{
                    
                     let Type = new Brand()
                     Type.BrandName = req.body.BrandName;
-                    Type.Manufacturer = req.body.Manufacturer;
+                    Type.address = req.body.address;
 
                     await connection.manager.save(Type);
                 res.json({message: "Successfully Saved."})
@@ -77,6 +75,30 @@ export class ManufacturerController{
                 }); 
       
     }
+
+    async AssaignManufacturerVsBrand(req, res,next) {
+        let repo=getRepository(ManufacyturerVsBrand);
+
+        let barandarray=req.body.brand;
+        let saveArray:ManufacyturerVsBrand[]=[];
+
+        barandarray.forEach(brand => {
+            let saveObj=new ManufacyturerVsBrand();
+            saveObj ={manufacturer:req.body.manufacturer,...brand};
+            saveArray.push(saveObj);
+        })
+
+        repo.save(saveArray).then(saved=>{
+return res.status(200).json({success:"Datas saved Successfully" })
+        }).catch(error=>{
+            return res.status(400).json({error:error })
+        })
+
+
+
+
+    }
+   
 }
 
 

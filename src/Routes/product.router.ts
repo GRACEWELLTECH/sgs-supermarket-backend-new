@@ -57,6 +57,7 @@ productRouter.post('/createManufacturer',manufacturerController.CreateManufactur
 productRouter.get('/getBrand',manufacturerController.getBarand)
 productRouter.get('/getBrandByManufacturer/:manufacturer',manufacturerController.getBarandsByManufacturer)
 productRouter.post('/createBrand',manufacturerController.createBrand)
+productRouter.post('/assignManufacturerVsBrand',manufacturerController.AssaignManufacturerVsBrand)
   
 productRouter.get('/getProductList',productController.getProductList)
 productRouter.get('/getProduct/:id',productController.getProductById)
