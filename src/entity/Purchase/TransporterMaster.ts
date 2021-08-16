@@ -7,9 +7,9 @@ export class TransporterMaster {
     id: number;
 
     @Column()
-    NameTransporter: string;
+    nameTransporter: string;
 
     @Column()
-    Address: string;
+    address: string;
 
    }
