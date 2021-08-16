@@ -9,7 +9,6 @@ export class Manufacturer {
     public manufacturerName: string;    
     @Column()
     public address: string;    
-    @OneToMany(() => Brand,(brand) => brand.Manufacturer)
-    public brand: Brand[];
+ 
 }
 export default Manufacturer;

@@ -9,6 +9,7 @@ import ProductSubType from "../entity/ProductSubType";
 import Kind from "../entity/Kind";
 import SubKind from "../entity/SubKind";
 import {Manufacturer} from "../entity/Manufacturer";
+import {ManufacyturerVsBrand} from "../entity/ManufacturerVsBrand";
 import {Brand} from "../entity/Brand";
 import {Product} from "../entity/Product";
 import {Gst} from "../entity/Gst";
@@ -39,7 +40,7 @@ export const connection = createConnection({
         Manufacturer,
         Brand,
         Product,Gst,
-
+        ManufacyturerVsBrand,
         //inventoary
         ItemVsEan,
         HsnVsGst,
