@@ -79,10 +79,10 @@ export class ManufacturerController{
     async AssaignManufacturerVsBrand(req, res,next) {
         let repo=getRepository(ManufacyturerVsBrand);
 
-        let barandarray=req.body.brand;
+       
         let saveArray:ManufacyturerVsBrand[]=[];
 
-        barandarray.forEach(brand => {
+        req.body.brand.forEach(brand => {
             let saveObj=new ManufacyturerVsBrand();
             saveObj ={manufacturer:req.body.manufacturer,...brand};
             saveArray.push(saveObj);
