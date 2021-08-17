@@ -8,7 +8,7 @@ export class SubCategoryController{
      async getSubCategory(req, res,next) {
      connection
                 .then(async connection => {
-                    const CategoryList: SubCategory[] = await connection.manager.find(SubCategory);
+                    const CategoryList: SubCategory[] = await connection.manager.find(SubCategory,{relations:["category"]});
                     res.json(CategoryList);
                 })
                 .catch(error => {
@@ -20,7 +20,8 @@ export class SubCategoryController{
      async getSubCategorybyCategory(req, res,next) {
      connection
                 .then(async connection => {
-                    const CategoryList: SubCategory[] = await connection.manager.find(SubCategory,{where:{category:req.params.categoryId}});
+                    const CategoryList: SubCategory[] = await connection.manager.find(SubCategory,
+                        {where:{category:req.params.categoryId},relations:["category"]});
                     res.json(CategoryList);
                 })
                 .catch(error => {

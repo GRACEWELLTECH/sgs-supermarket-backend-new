@@ -8,7 +8,8 @@ export class ProductSubTypeController{
     async getSubType(req, res,next) {
       connection
                 .then(async connection => {
-                    const typeList: ProductSubType[] = await connection.manager.find(ProductSubType);
+                    const typeList: ProductSubType[] = await connection.manager
+                    .find(ProductSubType,{relations:["productType","productType.subCategory","productType.subCategory.category"]});
                     res.json(typeList);
                 })
                 .catch(error => {
