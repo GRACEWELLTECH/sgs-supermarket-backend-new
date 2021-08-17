@@ -29,4 +29,12 @@ export class AssemplyKitController{
             return res.status(400).json({error:error});
         })
     }
+    async getAssemplyKitByType(req,res,next){
+
+        getRepository(Assemblykit).find({where:{KitType:req.params.type}},).then(list=>{
+            return res.status(200).json({data:list});
+        }).catch(error=>{
+            return res.status(400).json({error:error});
+        })
+    }
 }
