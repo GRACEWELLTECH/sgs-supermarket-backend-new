@@ -8,7 +8,7 @@ export class ProductTypeController{
     async getProductType(req, res,next) {
       connection
                 .then(async connection => {
-                    const typeList: ProductType[] = await connection.manager.find(ProductType);
+                    const typeList: ProductType[] = await connection.manager.find(ProductType,{relations:["subCategory","subCategory.category"]});
                     res.json(typeList);
                 })
                 .catch(error => {
@@ -21,7 +21,7 @@ export class ProductTypeController{
       connection
                 .then(async connection => {
                     const typeList: ProductType[] = await connection.manager
-                    .find(ProductType,{where:{subCategory:req.params.id}});
+                    .find(ProductType,{where:{subCategory:req.params.id},relations:["subCategory","subCategory.category"]});
                     res.json(typeList);
                 })
                 .catch(error => {

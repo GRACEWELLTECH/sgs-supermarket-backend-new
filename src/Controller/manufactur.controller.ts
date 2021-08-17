@@ -51,7 +51,7 @@ export class ManufacturerController{
     }
     async getBarandsByManufacturer(req, res,next) {
      let repo=getRepository(ManufacyturerVsBrand)
-      repo.find({where:{manufacturer:req.params.manufacturer}}).then((result) => {
+      repo.find({where:{manufacturer:req.params.manufacturer},relations:["manufacturer","brand"]}).then((result) => {
 
         return res.status(200).json({data:result});
       }).catch((error) => {
