@@ -1,7 +1,7 @@
 import {Entity, PrimaryGeneratedColumn, Column} from "typeorm";
 
 @Entity()
-export class assemblykit {
+export class Assemblykit {
 
     @PrimaryGeneratedColumn()
     id: number;
@@ -13,15 +13,15 @@ export class assemblykit {
     KitName: string;
 
     @Column()
-    ValidForm: string;
+    validForm: string;
 
     @Column()
-    ValidTill: string;
+    validTill: string;
 
     @Column()
-    ValidTillCalculation: string;
+    validity: string;
 
     @Column()
-    Day: number;
+    validityUnit: string;
 
 }
