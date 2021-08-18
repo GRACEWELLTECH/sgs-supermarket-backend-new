@@ -46,7 +46,9 @@ export class AssemplyKitController{
         req.body.product.forEach(prod=>{
             let assemply=new prepareAssemblyKit();
             assemply.assemply=req.body.assemply
-            assemply.product=prod
+            assemply.product=prod.product;
+            assemply.quantity=prod.quantity;
+
             prepareArray.push(assemply);
 
         })

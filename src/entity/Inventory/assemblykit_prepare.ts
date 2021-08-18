@@ -8,6 +8,9 @@ export class prepareAssemblyKit {
     @PrimaryGeneratedColumn()
     id: number;
 
+    @Column()
+    quantity: number;
+
     @ManyToOne(()=>Assemblykit,(assemblykit)=>assemblykit.id)
     assemply : number;
 
