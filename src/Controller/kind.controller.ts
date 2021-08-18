@@ -61,7 +61,7 @@ export class KindController{
     async getSubKindByKind(req, res,next) {
       connection
                 .then(async connection => {
-                    const CategoryList: SubKind[] = await connection.manager.find(SubKind,{where:{kind:req.params.kind}});
+                    const CategoryList: SubKind[] = await connection.manager.find(SubKind,{where:{kind:req.params.id}});
                     res.json(CategoryList);
                 })
                 .catch(error => {
