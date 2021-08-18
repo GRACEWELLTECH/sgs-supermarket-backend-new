@@ -1,5 +1,7 @@
-import {Entity, PrimaryGeneratedColumn, Column} from "typeorm";
+import {Entity, PrimaryGeneratedColumn, Column,ManyToOne} from "typeorm";
 
+import {Assemblykit} from './assemblykit_create'
+import {Product} from '../Product'
 @Entity()
 export class prepareAssemblyKit {
 
@@ -7,9 +9,12 @@ export class prepareAssemblyKit {
     id: number;
 
     @Column()
-    SelectAssembly_Kit : string;
+    quantity: number;
 
-    @Column()
-    SelectAssemblyNameForAssembly: string;
+    @ManyToOne(()=>Assemblykit,(assemblykit)=>assemblykit.id)
+    assemply : number;
+
+    @ManyToOne(()=>Product,(product)=>product.id)
+    product: number;
 
 }

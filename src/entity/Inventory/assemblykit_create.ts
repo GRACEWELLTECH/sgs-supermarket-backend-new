@@ -24,4 +24,7 @@ export class Assemblykit {
     @Column()
     validityUnit: string;
 
+    @Column()
+    status: boolean;
+
 }
