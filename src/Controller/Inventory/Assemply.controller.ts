@@ -13,6 +13,7 @@ export class AssemplyKitController{
         newAssemply.validTill=req.body.validTill;
         newAssemply.validity=req.body.validity;
         newAssemply.validityUnit=req.body.validityUnit;
+        newAssemply.status=true;
 
         getRepository(Assemblykit).save(newAssemply).then(savedObj=>{
             return res.status(200).json({message:"Saved Successfully",data:savedObj}); 
