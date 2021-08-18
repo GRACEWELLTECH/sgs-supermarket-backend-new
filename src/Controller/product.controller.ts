@@ -1,4 +1,4 @@
-import {Request, Response} from 'express';
+import {json, Request, Response} from 'express';
 import {connection} from "../connection/Connection";
 import {getRepository} from "typeorm";
 
@@ -88,7 +88,7 @@ export class ProductController{
                 })
                 .catch(error => {
                     console.error("Error ", error);
-                    res.json(error);
+                    res.status(400).json(error);
                 }); 
       
     }
@@ -101,51 +101,52 @@ export class ProductController{
         let selectedProduct=await productrepo.findOne(req.params.id);
         
 
-            selectedProduct.productName=product.productName;
-            selectedProduct.shortName=product.shortName;
-            selectedProduct.weight=product.weight;
-            selectedProduct.weightUnit=product.weightUnit;
-            selectedProduct.category=product.category;
-            selectedProduct.subCategory=product.subCategory;
-            selectedProduct.type=product.type;
-            selectedProduct.subType=product.subType;
-            selectedProduct.kind=product.kind;
-            selectedProduct.subKind=product.subKind;
-            selectedProduct.manufacturer=product.manufacturer;
-            selectedProduct.brand=product.brand;
-            selectedProduct.distributerType=product.distributerType;
-            selectedProduct.agency=product.agency;
-            selectedProduct.purcheaser=product.purcheaser;
-            selectedProduct.active=product.active;
-            selectedProduct.GST=product.GST;
-            selectedProduct.hsnNumber=product.hsnNumber;
-            selectedProduct.preparationStatus=product.preparationStatus;
-            selectedProduct.bulkProduct=product.bulkProduct?product.bulkProduct:"";
-            selectedProduct.rePackageWeight=product.rePackageWeight?product.rePackageWeight:0;
-            selectedProduct.allowDecimal=product.allowDecimal;
-            selectedProduct.numberOfDecimalPoints=product.numberOfDecimalPoints;
-            selectedProduct.alowNegativeStock=product.alowNegativeStock;
-            selectedProduct.alowSellingStockEdit=product.alowSellingStockEdit;
-            selectedProduct.allowLoyalty=product.allowLoyalty;
-            selectedProduct.allowMRPSelection=product.allowMRPSelection;
-            selectedProduct.maintainExpDate=product.maintainExpDate;
-            selectedProduct.sellingRateLessthenLandingCost=product.sellingRateLessthenLandingCost;
-            selectedProduct.maintainSellingRateBy=product.maintainSellingRateBy?product.maintainSellingRateBy:"";
-            selectedProduct.minimumSellingQuantity=product.minimumSellingQuantity?product.minimumSellingQuantity:0;
-            selectedProduct.curserDefaultFocusIn=product.curserDefaultFocusIn?product.curserDefaultFocusIn:"";
-            selectedProduct.barcodeGenerationProfile=product.barcodeGenerationProfile?product.barcodeGenerationProfile:"";
-            selectedProduct.applicableForOnlineSale=product.applicableForOnlineSale;
-            selectedProduct.color=product.color;
-            selectedProduct.onlineType=product.onlineType;
-            selectedProduct.allowExchange=product.allowExchange;
-            selectedProduct.warrenty=product.warrenty;
-            selectedProduct.warrentyUnit=product.warrentyUnit;
-            selectedProduct.masterGodownStackMin=product.masterGodownStackMin;
-            selectedProduct.masterGodownStackMax=product.masterGodownStackMax;
-            selectedProduct.storeStackMin=product.storeStackMin;
-            selectedProduct.storeStackMax=product.storeStackMax;
-            selectedProduct.rackStackMin=product.rackStackMin;
-            selectedProduct.rackStackMax=product.rackStackMax;
+        selectedProduct.productName=product.productName;
+        selectedProduct.shortName=product.shortName?product.shortName:"";
+        selectedProduct.weight=product.weight?product.weight:0;
+        selectedProduct.weightUnit=product.weightUnit?product.weightUnit:0;
+        selectedProduct.category=product.category?product.category:0;
+        selectedProduct.subCategory=product.subCategory?product.subCategory:0;
+        selectedProduct.type=product.type?product.type:0;
+        selectedProduct.subType=product.subType?product.subType:0;
+        selectedProduct.kind=product.kind?product.kind:0;
+        selectedProduct.subKind=product.subKind?product.subKind:0;
+        selectedProduct.manufacturer=product.manufacturer?product.manufacturer:0;
+        selectedProduct.brand=product.brand?product.brand:0;
+        selectedProduct.distributerType=product.distributerType?product.distributerType:"";
+        selectedProduct.agency=product.agency?product.agency:0;
+        selectedProduct.purcheaser=product.purcheaser;
+        selectedProduct.active=product.active;
+        selectedProduct.GST=product.GST;
+        selectedProduct.hsnNumber=product.hsnNumber;
+        selectedProduct.preparationStatus=product.preparationStatus?product.preparationStatus:"";
+        selectedProduct.bulkProduct=product.bulkProduct?product.bulkProduct:"";
+        selectedProduct.rePackageWeight=product.rePackageWeight?product.rePackageWeight:0;
+        selectedProduct.allowDecimal=product.allowDecimal;
+        selectedProduct.numberOfDecimalPoints=product.numberOfDecimalPoints?product.numberOfDecimalPoints:0;
+        selectedProduct.alowNegativeStock=product.alowNegativeStock;
+        selectedProduct.alowSellingStockEdit=product.alowSellingStockEdit;
+        selectedProduct.allowLoyalty=product.allowLoyalty;
+        selectedProduct.allowMRPSelection=product.allowMRPSelection;
+        selectedProduct.maintainExpDate=product.maintainExpDate;
+        selectedProduct.sellingRateLessthenLandingCost=product.sellingRateLessthenLandingCost;
+        selectedProduct.maintainSellingRateBy=product.maintainSellingRateBy?product.maintainSellingRateBy:"";
+        selectedProduct.minimumSellingQuantity=product.minimumSellingQuantity?product.minimumSellingQuantity:0;
+        selectedProduct.curserDefaultFocusIn=product.curserDefaultFocusIn?product.curserDefaultFocusIn:"";
+        selectedProduct.barcodeGenerationProfile=product.barcodeGenerationProfile?product.barcodeGenerationProfile:"";
+        selectedProduct.applicableForOnlineSale=product.applicableForOnlineSale;
+        selectedProduct.color=product.color?product.color:"";
+        selectedProduct.onlineType=product.onlineType?product.onlineType:"";
+        selectedProduct.allowExchange=product.allowExchange;
+        selectedProduct.warrenty=product.warrenty?product.warrenty:0;
+        selectedProduct.warrentyUnit=product.warrentyUnit?product.warrentyUnit:"";
+        selectedProduct.masterGodownStackMin=product.masterGodownStackMin;
+        selectedProduct.masterGodownStackMax=product.masterGodownStackMax;
+        selectedProduct.storeStackMin=product.storeStackMin;
+        selectedProduct.storeStackMax=product.storeStackMax;
+        selectedProduct.rackStackMin=product.rackStackMin;
+        selectedProduct.rackStackMax=product.rackStackMax;
+  
             
            await  productrepo.save(selectedProduct)
 

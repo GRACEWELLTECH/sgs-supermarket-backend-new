@@ -24,5 +24,8 @@ inventoryRouter.get('/getAllAssemplykit',assemply.getAllAssemplyKit)
 
 inventoryRouter.get('/getAssemplykitByType/:type',assemply.getAllAssemplyKit)
 
+inventoryRouter.post('/prepareAssemply',assemply.prepareAssemblyKit)
+inventoryRouter.get('/ProductsbyAssemply/:id',assemply.getAssemplyproducts)
+
 
 export default inventoryRouter;
