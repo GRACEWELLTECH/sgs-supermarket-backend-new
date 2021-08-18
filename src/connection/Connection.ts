@@ -22,6 +22,7 @@ import {DistributerMail} from "../entity/Purchase/Distributer/DistributerMail";
 import {WeightUnit} from "../entity/WeightUnit"
 import {OrderVsDelivery} from "../entity/Purchase/Distributer/OrderVsDelivery";
 import {Assemblykit} from "../entity/Inventory/assemblykit_create";
+import {prepareAssemblyKit} from "../entity/Inventory/assemblykit_prepare";
 
 // import {DistributerSalesPersion} from "../entity/Purchase/Distributer/DistributerSalespersion";
 
@@ -47,7 +48,8 @@ export const connection = createConnection({
         ItemVsEan,
         HsnVsGst,
         Assemblykit,
-        
+        prepareAssemblyKit,
+
         //purchease 
         Distributor,
         DistributerDeliveryPersion,
