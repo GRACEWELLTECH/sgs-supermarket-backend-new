@@ -24,6 +24,8 @@ inventoryRouter.post('/createAssemply',assemply.createAssemplykit)
 
 inventoryRouter.post('/createGiftVoucher',giftvoucher.createGiftVoucher)
 
+inventoryRouter.get('/getGiftVoucher',giftvoucher.getGiftVoucher)
+
 inventoryRouter.get('/getAllAssemplykit',assemply.getAllAssemplyKit)
 
 inventoryRouter.get('/getAssemplykitByType/:type',assemply.getAllAssemplyKit)
