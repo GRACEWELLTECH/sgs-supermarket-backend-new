@@ -7,19 +7,19 @@ export class GiftVoucher {
     id: number;
 
     @Column()
-    VoucherName : string;
+    name : string;
 
     @Column()
-    VoucherNumberPrefix: number;
+    numberPrefix: number;
 
     @Column()
-    StartingNumber: number;
+    startingNumber: number;
 
     @Column()
-    NumberOfVouchers: number;
+    numberOfVouchers: number;
 
     @Column()
-    Vouchers: number;
+    value: number;
 
 }
 

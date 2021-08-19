@@ -22,18 +22,18 @@ export class GiftVouchercreateController{
                 .then(async connection => {
                     console.log(req.body)
                     let Type = new GiftVoucher()
-                    Type.VoucherName = req.body.VoucherName
-                    Type.VoucherNumberPrefix = req.body.VoucherNumberPrefix
-                    Type.StartingNumber= req.body.StartingNumber
-                    Type.NumberOfVouchers = req.body.NumberOfVouchers
-                    Type.Vouchers = req.body.Vouchers
+                    Type.name = req.body.name
+                    Type.numberPrefix = req.body.numberPrefix
+                    Type.startingNumber= req.body.startingNumber
+                    Type.numberOfVouchers = req.body.numberOfVouchers
+                    Type.value = req.body.value
                   
                     await connection.manager.save(Type);
-                res.json({message: "Successfully Saved."})
+                res.status(200).json({message: "Successfully Saved."})
                 })
                 .catch(error => {
                     console.error("Error ", error);
-                    res.json(error);
+                    res.status(400).json(error);
                 }); 
       
     }
