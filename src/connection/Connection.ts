@@ -23,6 +23,7 @@ import {WeightUnit} from "../entity/WeightUnit"
 import {OrderVsDelivery} from "../entity/Purchase/Distributer/OrderVsDelivery";
 import {Assemblykit} from "../entity/Inventory/assemblykit_create";
 import {prepareAssemblyKit} from "../entity/Inventory/assemblykit_prepare";
+import {CategoryVsBrand} from "../entity/Purchase/CategoryVsBrand";
 
 // import {DistributerSalesPersion} from "../entity/Purchase/Distributer/DistributerSalespersion";
 
@@ -55,6 +56,7 @@ export const connection = createConnection({
         DistributerDeliveryPersion,
         DistributerLandline,
         DistributerMail,
+        CategoryVsBrand,
         // DistributerSalesPersion,
         OrderVsDelivery
     ],

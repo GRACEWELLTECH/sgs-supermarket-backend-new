@@ -68,7 +68,10 @@ export class Distributor {
     @OneToMany(()=>DistributerMail,(mail)=>mail.distributer)
     email: DistributerMail[];
 
+    @Column()
+    ordervsDeliveryType: string;
+    
     @OneToMany(()=>OrderVsDelivery,(order)=>order.distributer)
-    orderVsDeliveryType: OrderVsDelivery[];
+    orderVsDelivery: OrderVsDelivery[];
 }
 
