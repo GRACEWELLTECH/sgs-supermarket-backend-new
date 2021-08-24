@@ -13,7 +13,7 @@ export class DistributorMasterController{
     async getDistributorMaster(req, res,next) {
      
         let repo=getRepository(Distributor);
-        repo.find({relations:['landline','email','deliveryPerson','orderVsDeliveryType']}).then(list=>{
+        repo.find({relations:['landline','email','deliveryPerson','orderVsDelivery']}).then(list=>{
             res.status(200).json({data:list});
             next();
         }).catch(error=>{
@@ -40,7 +40,7 @@ export class DistributorMasterController{
                     Type.gstNumber = req.body.gstNumber
                     Type.landline = req.body.landline
                   
-                    Type.orderVsDeliveryType = req.body.orderVsDeliveryType
+                    Type.ordervsDeliveryType = req.body.ordervsDeliveryType
                  
                     let repo=getRepository(Distributor)
                     // let salesRepo=getRepository(DistributerSalesPersion)
