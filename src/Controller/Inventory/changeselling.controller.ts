@@ -2,7 +2,6 @@ import {Request, Response} from 'express';
 import {connection} from "../../connection/Connection";
 import {getRepository} from "typeorm";
 import {changeselling} from "../../entity/Inventory/changeselling"
-import {assemblykit} from "../../entity/Inventory/assemblykit_create"
 
 export class changesellingController{
     async getChangeSelling(req, res,next) {

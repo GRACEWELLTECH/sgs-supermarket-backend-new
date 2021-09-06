@@ -12,26 +12,26 @@ const giftvoucher=new GiftVouchercreateController()
 
 const inventoryRouter = Router();
 
+//Item Vs 
 inventoryRouter.post('/assignItemVsEan',itemVsEan.createEan)
 
+//Hsn Vs GST
 inventoryRouter.post('/hsnVsGst',hsnVsGst.assignHsnVsGst)
-
+inventoryRouter.get('/getHsnByGst/:gstId',hsnVsGst.getHSNbyGSt)
 inventoryRouter.get('/getHsnByGst/:gstId',hsnVsGst.getHSNbyGSt)
 
-inventoryRouter.get('/getHsnByGst/:gstId',hsnVsGst.getHSNbyGSt)
 
+//Assemply
 inventoryRouter.post('/createAssemply',assemply.createAssemplykit)
-
-inventoryRouter.post('/createGiftVoucher',giftvoucher.createGiftVoucher)
-
-inventoryRouter.get('/getGiftVoucher',giftvoucher.getGiftVoucher)
-
 inventoryRouter.get('/getAllAssemplykit',assemply.getAllAssemplyKit)
-
 inventoryRouter.get('/getAssemplykitByType/:type',assemply.getAllAssemplyKit)
-
 inventoryRouter.post('/prepareAssemply',assemply.prepareAssemblyKit)
 inventoryRouter.get('/productsbyAssemply/:id',assemply.getAssemplyproducts)
 
+//GiftVoucher
+inventoryRouter.post('/createGiftVoucher',giftvoucher.createGiftVoucher)
+inventoryRouter.get('/getGiftVoucher',giftvoucher.getGiftVoucher)
+inventoryRouter.post('/claimGiftVoucher',giftvoucher.giftvoucherClaim)
+inventoryRouter.post('/issueGiftVoucher',giftvoucher.giftvoucherIssue)
 
 export default inventoryRouter;
