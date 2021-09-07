@@ -1,6 +1,6 @@
 import {json, Request, Response} from 'express';
 import {connection} from "../connection/Connection";
-import {getRepository} from "typeorm";
+import {getRepository, Like} from "typeorm";
 
 import Product from "../entity/Product"
 
@@ -214,6 +214,16 @@ export class ProductController{
     async getAllRepackageProducts(req,res,next){
 
         getRepository(Product).find({where:{preparationStatus:"Repackage "}}).then(list=>{
+
+            return res.status(200).json({message:"Success",data:list});
+
+        }).catch(err=>{
+            return res.status(400).json({message:"Error",error:err})
+        })
+    }
+    async searchProducts(req,res,next){
+
+        getRepository(Product).find({productName:Like(`%${req.params.productName}%`)}).then(list=>{
 
             return res.status(200).json({message:"Success",data:list});
 
