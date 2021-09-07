@@ -211,6 +211,17 @@ export class ProductController{
             return res.status(400).json({message:"Error",error:err})
         })
     }
+    async getAllRepackageProducts(req,res,next){
+
+        getRepository(Product).find({where:{preparationStatus:"Repackage "}}).then(list=>{
+
+            return res.status(200).json({message:"Success",data:list});
+
+        }).catch(err=>{
+            return res.status(400).json({message:"Error",error:err})
+        })
+    }
+
     async filterProducts(req,res,next){
         let condtion:any = {};
 
@@ -223,8 +234,23 @@ export class ProductController{
         if(req.body.type!=null&&req.body.type!=""&&req.body.type!=undefined)
         condtion.type=req.body.type;
 
+        if(req.body.subType!=null&&req.body.subType!=""&&req.body.subType!=undefined)
+        condtion.subType=req.body.subType;
+
+        if(req.body.kind!=null&&req.body.kind!=""&&req.body.kind!=undefined)
+        condtion.kind=req.body.kind;
+
+        if(req.body.subKind!=null&&req.body.subKind!=""&&req.body.subKind!=undefined)
+        condtion.subKind=req.body.subKind;
+
+        if(req.body.manufacturer!=null&&req.body.manufacturer!=""&&req.body.manufacturer!=undefined)
+        condtion.manufacturer=req.body.manufacturer;
+
+        if(req.body.brand!=null&&req.body.brand!=""&&req.body.brand!=undefined)
+        condtion.brand=req.body.brand;
+
         console.log("condtion",condtion)
-        
+
         getRepository(Product).find({where:condtion}).then(list=>{
 
             return res.status(200).json({message:"Success",data:list});
@@ -233,6 +259,7 @@ export class ProductController{
             return res.status(400).json({message:"Error",error:err})
         })
     }
+
 }
 
 
