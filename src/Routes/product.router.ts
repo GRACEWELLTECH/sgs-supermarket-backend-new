@@ -68,6 +68,7 @@ productRouter.get('/getAllBulkProducts',productController.getAllBulkProducts)
 productRouter.get('/getAllRepackageProducts',productController.getAllRepackageProducts)
 productRouter.post('/filterProducts',productController.filterProducts)
 productRouter.get('/searchproduct/:productName',productController.searchProducts)
+productRouter.get('/getRepackageByBulkProduct/:productId',productController.getRepackageByBulkProduct)
 
 //GST Master Service
 

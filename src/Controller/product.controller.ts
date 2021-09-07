@@ -213,7 +213,7 @@ export class ProductController{
     }
     async getAllRepackageProducts(req,res,next){
 
-        getRepository(Product).find({where:{preparationStatus:"Repackage "}}).then(list=>{
+        getRepository(Product).find({where:{preparationStatus:"Repackage"}}).then(list=>{
 
             return res.status(200).json({message:"Success",data:list});
 
@@ -224,6 +224,18 @@ export class ProductController{
     async searchProducts(req,res,next){
 
         getRepository(Product).find({productName:Like(`%${req.params.productName}%`)}).then(list=>{
+
+            return res.status(200).json({message:"Success",data:list});
+
+        }).catch(err=>{
+            return res.status(400).json({message:"Error",error:err})
+        })
+    }
+    
+
+    getRepackageByBulkProduct(req,res,next){
+
+        getRepository(Product).find({where:{preparationStatus:"Repackage",bulkProduct:req.params.productId}}).then(list=>{
 
             return res.status(200).json({message:"Success",data:list});
 
