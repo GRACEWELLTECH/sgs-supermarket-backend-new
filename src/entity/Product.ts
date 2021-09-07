@@ -1,5 +1,13 @@
 import {Column, Entity, ManyToOne, PrimaryGeneratedColumn} from "typeorm";
 
+import {Category} from './Category'
+import {SubCategory} from './SubCategory'
+import {ProductType} from './ProductType'
+import {ProductSubType} from './ProductSubType'
+import {Kind} from './Kind'
+import {SubKind} from './SubKind'
+import {Manufacturer} from './Manufacturer'
+import {Brand} from './Brand'
 
 @Entity()
 export class Product{
@@ -14,21 +22,21 @@ export class Product{
         public weight: number;
         @Column()
         public weightUnit: string;
-        @Column()
+        @ManyToOne(()=>Category,(category)=> category.id)
         public category:number;
-        @Column()
+        @ManyToOne(()=>SubCategory, (subCategory)=>subCategory.id,{nullable: true})
         public subCategory: number;
-        @Column({nullable: true })
+        @ManyToOne(()=>ProductType,(type)=>type.id,{nullable: true })
         public type: number;
-        @Column({nullable: true })
+        @ManyToOne(()=>ProductSubType,(productSubType)=> productSubType.id,{nullable: true })
         public subType: number;
-        @Column({nullable: true })
+        @ManyToOne(()=>Kind,(kind)=>kind.id,{nullable: true })
         public kind: number;
-        @Column({nullable: true })
+        @ManyToOne(()=>SubKind,(subkind)=>subkind.id,{nullable: true})
         public subKind: number;
-        @Column({nullable: true })
+        @ManyToOne(()=>Manufacturer,(manufacturer)=> manufacturer.id,{nullable: true })
         public manufacturer: number;
-        @Column({nullable: true })
+        @ManyToOne(()=>Brand,(brand)=>brand.id,{nullable: true })
         public brand: number;
         @Column({nullable: true })
         public distributerType:string;
@@ -36,6 +44,12 @@ export class Product{
         public agency:number;
         @Column({nullable: true })
         public purcheaser:number;
+        @Column({nullable: true })
+        public agencyPurchaser:number;
+        @Column({nullable: true})
+        public caseContains:string;
+        @Column({nullable: true})
+        public miniumOrderQuantity:string;
         @Column()
         public active:boolean;
         @Column()
@@ -75,6 +89,10 @@ export class Product{
         @Column()
         public applicableForOnlineSale:boolean;
         @Column()
+        updateRetailPriceOldStock:boolean=true;
+        @Column()
+        warrantyAvailable:boolean=false;
+        @Column()
         public color:string;
         @Column()
         public onlineType:string;
@@ -84,6 +102,34 @@ export class Product{
         public warrenty:number;
         @Column()
         public warrentyUnit:String;
+        @Column()
+        expire:number;
+        @Column()
+        expireUnit:String;
+        @Column()
+        public rackFloor:string;
+        @Column()
+        public rackRackNo:string;
+        @Column()
+        public rackShelfNo:string;
+        @Column()
+        public rackBoxNo:string;
+        @Column()
+        public storeFloor:string;
+        @Column()
+        public storeRackNo:string;
+        @Column()
+        public storeShelfNo:string;
+        @Column()
+        public storeBoxNo:string;
+        @Column()
+        public godownFloor:string;
+        @Column()
+        public godownRackNo:string;
+        @Column()
+        public godownShelfNo:string;
+        @Column()
+        public godownBoxNo:string;
         @Column()
         public masterGodownStackMin:number
         @Column()

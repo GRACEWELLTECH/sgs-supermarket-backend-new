@@ -37,16 +37,16 @@ export class ProductController{
             newproduct.shortName=product.shortName?product.shortName:"";
             newproduct.weight=product.weight?product.weight:0;
             newproduct.weightUnit=product.weightUnit?product.weightUnit:0;
-            newproduct.category=product.category?product.category:0;
-            newproduct.subCategory=product.subCategory?product.subCategory:0;
-            newproduct.type=product.type?product.type:0;
-            newproduct.subType=product.subType?product.subType:0;
-            newproduct.kind=product.kind?product.kind:0;
-            newproduct.subKind=product.subKind?product.subKind:0;
-            newproduct.manufacturer=product.manufacturer?product.manufacturer:0;
-            newproduct.brand=product.brand?product.brand:0;
+            newproduct.category=product.category?product.category:null;
+            newproduct.subCategory=product.subCategory?product.subCategory:null;
+            newproduct.type=product.type?product.type:null;
+            newproduct.subType=product.subType?product.subType:null;
+            newproduct.kind=product.kind?product.kind:null;
+            newproduct.subKind=product.subKind?product.subKind:null;
+            newproduct.manufacturer=product.manufacturer?product.manufacturer:null;
+            newproduct.brand=product.brand?product.brand:null;
             newproduct.distributerType=product.distributerType?product.distributerType:"";
-            newproduct.agency=product.agency?product.agency:0;
+            newproduct.agency=product.agency?product.agency:null;
             newproduct.purcheaser=product.purcheaser;
             newproduct.active=product.active;
             newproduct.GST=product.GST;
@@ -78,7 +78,28 @@ export class ProductController{
             newproduct.storeStackMax=product.storeStackMax;
             newproduct.rackStackMin=product.rackStackMin;
             newproduct.rackStackMax=product.rackStackMax;
-      
+      //additional fields
+      newproduct.updateRetailPriceOldStock=req.body.updateRetailPriceOldStock;
+      newproduct.warrantyAvailable=req.body.warrantyAvailable;
+      newproduct.expire=req.body.expire;
+      newproduct.expireUnit=req.body.expireUnit;
+     
+      newproduct.rackFloor=req.body.rackFloor;
+      newproduct.rackRackNo=req.body.rackRackNo;
+      newproduct.rackShelfNo=req.body.rackShelfNo;
+      newproduct.rackBoxNo=req.body.rackBoxNo;
+      newproduct.storeFloor=req.body.storeFloor;
+      newproduct.storeRackNo=req.body.storeRackNo;
+      newproduct.storeShelfNo=req.body.storeShelfNo;
+      newproduct.storeBoxNo=req.body.storeBoxNo;
+      newproduct.godownFloor=req.body.godownFloor;
+      newproduct.godownRackNo=req.body.godownRackNo;
+      newproduct.godownShelfNo=req.body.godownShelfNo;
+      newproduct.godownBoxNo=req.body.godownBoxNo;
+      newproduct.agencyPurchaser=req.body.agencyPurchaser;
+      newproduct.caseContains=req.body.caseContains;
+      newproduct.miniumOrderQuantity=req.body.miniumOrderQuantity;
+
      
         connection.then(async connection => {
                     console.log(req.body)
@@ -146,7 +167,29 @@ export class ProductController{
         selectedProduct.storeStackMax=product.storeStackMax;
         selectedProduct.rackStackMin=product.rackStackMin;
         selectedProduct.rackStackMax=product.rackStackMax;
+  //additional
+   //additional fields
+   selectedProduct.updateRetailPriceOldStock=req.body.updateRetailPriceOldStock;
+   selectedProduct.warrantyAvailable=req.body.warrantyAvailable;
+   selectedProduct.expire=req.body.expire;
+   selectedProduct.expireUnit=req.body.expireUnit;
   
+   selectedProduct.rackFloor=req.body.rackFloor;
+   selectedProduct.rackRackNo=req.body.rackRackNo;
+   selectedProduct.rackShelfNo=req.body.rackShelfNo;
+   selectedProduct.rackBoxNo=req.body.rackBoxNo;
+   selectedProduct.storeFloor=req.body.storeFloor;
+   selectedProduct.storeRackNo=req.body.storeRackNo;
+   selectedProduct.storeShelfNo=req.body.storeShelfNo;
+   selectedProduct.storeBoxNo=req.body.storeBoxNo;
+   selectedProduct.godownFloor=req.body.godownFloor;
+   selectedProduct.godownRackNo=req.body.godownRackNo;
+   selectedProduct.godownShelfNo=req.body.godownShelfNo;
+   selectedProduct.godownBoxNo=req.body.godownBoxNo;
+   selectedProduct.agencyPurchaser=req.body.agencyPurchaser;
+   selectedProduct.caseContains=req.body.caseContains;
+   selectedProduct.miniumOrderQuantity=req.body.miniumOrderQuantity;
+
             
            await  productrepo.save(selectedProduct)
 
@@ -156,6 +199,39 @@ export class ProductController{
             res.send({status:400,error:err.message});
         }
         
+    }
+
+    async getAllBulkProducts(req,res,next){
+
+        getRepository(Product).find({where:{preparationStatus:"Bulk "}}).then(list=>{
+
+            return res.status(200).json({message:"Success",data:list});
+
+        }).catch(err=>{
+            return res.status(400).json({message:"Error",error:err})
+        })
+    }
+    async filterProducts(req,res,next){
+        let condtion:any = {};
+
+        if(req.body.category!=null&&req.body.category!=""&&req.body.category!=undefined)
+        condtion.category=req.body.category;
+
+        if(req.body.subCategory!=null&&req.body.subCategory!=""&&req.body.subCategory!=undefined)
+        condtion.subCategory=req.body.subCategory;
+
+        if(req.body.type!=null&&req.body.type!=""&&req.body.type!=undefined)
+        condtion.type=req.body.type;
+
+        console.log("condtion",condtion)
+        
+        getRepository(Product).find({where:condtion}).then(list=>{
+
+            return res.status(200).json({message:"Success",data:list});
+
+        }).catch(err=>{
+            return res.status(400).json({message:"Error",error:err})
+        })
     }
 }
 
