@@ -48,7 +48,7 @@ export class RepackEntryController{
 
     getRepackEntryByRepack(req, res,next)
     {
-        getRepository(RepackEntry).find({where:{repack:req.params.id}}).then(list=>{
+        getRepository(RepackEntry).find({where:{repack:req.params.id},relations:["product"]}).then(list=>{
             return res.status(200).json({message:"Success",data:list})
         }).catch(err=>{
             return res.status(400).json({message:"Error",Error:err})
