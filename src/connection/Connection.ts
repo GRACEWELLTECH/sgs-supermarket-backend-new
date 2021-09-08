@@ -25,6 +25,7 @@ import {Assemblykit} from "../entity/Inventory/assemblykit_create";
 import {GiftVoucher} from "../entity/Inventory/GiftVoucher_create";
 import {prepareAssemblyKit} from "../entity/Inventory/assemblykit_prepare";
 import {CategoryVsBrand} from "../entity/Purchase/CategoryVsBrand";
+import {RepackEntry} from "../entity/Inventory/RepackEntry";
 
 // import {DistributerSalesPersion} from "../entity/Purchase/Distributer/DistributerSalespersion";
 
@@ -52,7 +53,8 @@ export const connection = createConnection({
         Assemblykit,
         GiftVoucher,
         prepareAssemblyKit,
-
+        RepackEntry,
+        
         //purchease 
         Distributor,
         DistributerDeliveryPersion,
