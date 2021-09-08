@@ -27,7 +27,7 @@ export class RepackEntryController{
 
     getAllRepackEntry(req, res,next){
 
-        getRepository(RepackEntry).find().then(repos=>{
+        getRepository(RepackEntry).find({relations:["product"]}).then(repos=>{
             return res.status(200).json({message:"Success",data:repos})
         }).catch(err=>{
             return res.status(400).json({message:"Error",Error:err})
