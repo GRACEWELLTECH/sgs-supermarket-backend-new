@@ -8,6 +8,7 @@ export class RepackEntryController{
     async repackEntry(req: Request, res: Response)
     {
         let dataArray=req.body;
+        console.log("dataArray",dataArray)
         let objToSave=[];
         let repack=await getRepository(RepackEntry).save(new Repack())
         dataArray.forEach(product=>{
