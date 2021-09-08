@@ -1,6 +1,7 @@
 import {Request, Response} from 'express';
 import {getRepository} from 'typeorm'
 import {RepackEntry} from '../../entity/Inventory/RepackEntry'
+import {Repack} from '../../entity/Inventory/Repack'
 
 export class RepackEntryController{
 
@@ -8,9 +9,10 @@ export class RepackEntryController{
     {
         let dataArray=req.body;
         let objToSave=[];
+        let repack=await getRepository(RepackEntry).save(new Repack())
         dataArray.forEach(product=>{
             let entry=new RepackEntry();
-
+            entry.repack=repack.id;
             entry.product=product.productId;
             entry.quantity=product.quantity;
            
@@ -23,7 +25,14 @@ export class RepackEntryController{
             return res.status(400).json({message:"Error",Error:err})
         })
     }
+    getAllRepack(req, res,next){
 
+        getRepository(Repack).find({relations:["entry"]}).then(repos=>{
+            return res.status(200).json({message:"Success",data:repos})
+        }).catch(err=>{
+            return res.status(400).json({message:"Error",Error:err})
+        })
+    }
 
     getAllRepackEntry(req, res,next){
 
