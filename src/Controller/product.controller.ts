@@ -226,7 +226,7 @@ export class ProductController{
 
         getRepository(Product).findAndCount({productName:Like(`%${req.params.productName}%`)}).then(list=>{
 
-            return res.status(200).json({message:"Success",data:list});
+            return res.status(200).json({message:"Success",data:list[0],count:list[1]});
 
         }).catch(err=>{
             return res.status(400).json({message:"Error",error:err})
