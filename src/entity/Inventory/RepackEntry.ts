@@ -14,6 +14,9 @@ export class RepackEntry
 
     @Column()
     quantity:number
+    
+    @Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP'})
+    entryOn:Date
 
 
 }

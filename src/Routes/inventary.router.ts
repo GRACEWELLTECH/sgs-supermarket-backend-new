@@ -38,5 +38,6 @@ inventoryRouter.post('/issueGiftVoucher',giftvoucher.giftvoucherIssue)
 
 //repackEntryController
 inventoryRouter.post('/repackEntry',repack.repackEntry)
+inventoryRouter.get('/getAllRepackEntry',repack.getAllRepackEntry)
 
 export default inventoryRouter;

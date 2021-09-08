@@ -13,11 +13,24 @@ export class RepackEntryController{
 
             entry.product=product.productId;
             entry.quantity=product.quantity;
+           
             objToSave.push(entry)
         })
 
         getRepository(RepackEntry).save(objToSave).then(savedObj=>{
-            return res.json({message:"saved Successfully",data:savedObj})
+            return res.status(200).json({message:"saved Successfully",data:savedObj})
+        }).catch(err=>{
+            return res.status(400).json({message:"Error",Error:err})
+        })
+    }
+
+
+    getAllRepackEntry(req, res,next){
+
+        getRepository(RepackEntry).find().then(repos=>{
+            return res.status(200).json({message:"Success",data:repos})
+        }).catch(err=>{
+            return res.status(400).json({message:"Error",Error:err})
         })
     }
 }
