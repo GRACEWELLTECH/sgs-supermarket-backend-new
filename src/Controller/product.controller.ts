@@ -3,6 +3,7 @@ import {connection} from "../connection/Connection";
 import {getRepository, Like} from "typeorm";
 
 import Product from "../entity/Product"
+import { count } from 'console';
 
 export class ProductController{
     async getProductList(req, res,next) {
@@ -223,7 +224,7 @@ export class ProductController{
     }
     async searchProducts(req,res,next){
 
-        getRepository(Product).find({productName:Like(`%${req.params.productName}%`)}).then(list=>{
+        getRepository(Product).findAndCount({productName:Like(`%${req.params.productName}%`)}).then(list=>{
 
             return res.status(200).json({message:"Success",data:list});
 
