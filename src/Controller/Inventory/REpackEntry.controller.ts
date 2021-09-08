@@ -10,7 +10,7 @@ export class RepackEntryController{
         let dataArray=req.body;
         console.log("dataArray",dataArray)
         let objToSave=[];
-        let repack=await getRepository(RepackEntry).save(new Repack())
+        let repack=await getRepository(Repack).save(new Repack())
         dataArray.forEach(product=>{
             console.log("product",product)
             let entry=new RepackEntry();
