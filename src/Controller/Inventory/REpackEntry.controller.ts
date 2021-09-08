@@ -12,6 +12,7 @@ export class RepackEntryController{
         let objToSave=[];
         let repack=await getRepository(RepackEntry).save(new Repack())
         dataArray.forEach(product=>{
+            console.log("product",product)
             let entry=new RepackEntry();
             entry.repack=repack.id;
             entry.product=product.productId;
