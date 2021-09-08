@@ -20,6 +20,7 @@ export class RepackEntryController{
         })
 
         getRepository(RepackEntry).save(objToSave).then(savedObj=>{
+            
             return res.status(200).json({message:"saved Successfully",data:savedObj})
         }).catch(err=>{
             return res.status(400).json({message:"Error",Error:err})
@@ -38,6 +39,15 @@ export class RepackEntryController{
 
         getRepository(RepackEntry).find({relations:["product"]}).then(repos=>{
             return res.status(200).json({message:"Success",data:repos})
+        }).catch(err=>{
+            return res.status(400).json({message:"Error",Error:err})
+        })
+    }
+
+    getRepackEntryByRepack(req, res,next)
+    {
+        getRepository(RepackEntry).find({where:{repack:req.params.id}}).then(list=>{
+            return res.status(200).json({message:"Success",data:list})
         }).catch(err=>{
             return res.status(400).json({message:"Error",Error:err})
         })
