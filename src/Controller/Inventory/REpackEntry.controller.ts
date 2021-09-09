@@ -1,5 +1,7 @@
 import {Request, Response} from 'express';
-import {getRepository} from 'typeorm'
+import {getRepository,In} from 'typeorm';
+
+import {Product} from '../../entity/Product'
 import {RepackEntry} from '../../entity/Inventory/RepackEntry'
 import {Repack} from '../../entity/Inventory/Repack'
 import {RepackStock} from '../../entity/Inventory/repackStock'
@@ -157,6 +159,20 @@ export class RepackEntryController{
              return res.status(400).json({message:"Error",error:error});
          })
     }
+
+   async getREpackStockbyBulk(req, res,next){
+
+        let productList=await getRepository(Product).find({where:{bulkProduct:req.params.id}})
+        let ids=[];
+        productList.forEach(product=>{
+            ids.push(product.id);
+        })
+        getRepository(RepackStock).find({where:{product:In(ids)},relations:["product"]}).then(repos=>{
+            return res.status(200).json({message:"Success",data:repos});
+        }).catch(error=>{
+            return res.status(400).json({message:"Error",error:error});
+        })
+   }
 
     stockUpdate(req, res,next){
         let list=req.body.stock;
