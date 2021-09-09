@@ -3,7 +3,7 @@ import {getRepository} from 'typeorm'
 import {RepackEntry} from '../../entity/Inventory/RepackEntry'
 import {Repack} from '../../entity/Inventory/Repack'
 import {RepackStock} from '../../entity/Inventory/repackStock'
-import { Controller } from '../Controller';
+
 
 export class RepackEntryController{
 
@@ -70,5 +70,10 @@ export class RepackEntryController{
         }).catch(err=>{
             return res.status(400).json({message:"Error",Error:err})
         })
+    }
+
+    RePackTransfer(req, res,next){
+
+      
     }
 }

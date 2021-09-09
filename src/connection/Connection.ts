@@ -28,6 +28,8 @@ import {CategoryVsBrand} from "../entity/Purchase/CategoryVsBrand";
 import {RepackEntry} from "../entity/Inventory/RepackEntry";
 import {Repack} from "../entity/Inventory/Repack";
 import {RepackStock} from "../entity/Inventory/repackStock";
+import {RepackTransfer} from "../entity/Inventory/RepackTransfer";
+import {RepackTransferDetail} from "../entity/Inventory/RepackTransferDetails";
 
 // import {DistributerSalesPersion} from "../entity/Purchase/Distributer/DistributerSalespersion";
 
@@ -58,6 +60,8 @@ export const connection = createConnection({
         RepackEntry,
         Repack,
         RepackStock,
+        RepackTransfer,
+        RepackTransferDetail,
         //purchease 
         Distributor,
         DistributerDeliveryPersion,
