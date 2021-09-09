@@ -95,7 +95,9 @@ export class RepackEntryController{
         })
 
         getRepository(RepackTransferDetail).save(detailList).then(savedObj=>{
-            
+            savedObj.forEach(item=>{
+
+            })
             return res.status(200).json({message:"Success",data:savedObj});
 
         }).catch(error=>{
