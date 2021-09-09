@@ -5,7 +5,7 @@ import {Repack} from '../../entity/Inventory/Repack'
 import {RepackStock} from '../../entity/Inventory/repackStock'
 import {RepackTransfer} from '../../entity/Inventory/RePackTransfer'
 import {RepackTransferDetail} from '../../entity/Inventory/RepackTransferDetails'
-import { Controller } from '../Controller';
+
 
 
 export class RepackEntryController{
@@ -140,7 +140,7 @@ export class RepackEntryController{
     }
     getTransferById(req, res,next){
 
-        getRepository(RepackTransfer).find({where:{id:req.params.id},relations:["detail","detail.product"]}).
+        getRepository(RepackTransferDetail).find({where:{transfer:req.params.id},relations:["product","transfer"]}).
         then(list => {
             return res.status(200).json({message:"Success",data:list});
         }).catch(error=>{
@@ -151,7 +151,7 @@ export class RepackEntryController{
 
 
     getAllStock(req, res,next){
-         getRepository(RepackStock).find().then(repos=>{
+         getRepository(RepackStock).find({relations:["product"]}).then(repos=>{
              return res.status(200).json({message:"Success",data:repos});
          }).catch(error=>{
              return res.status(400).json({message:"Error",error:error});
