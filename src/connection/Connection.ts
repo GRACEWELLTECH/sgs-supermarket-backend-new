@@ -31,9 +31,9 @@ import {Repack} from "../entity/Inventory/Repack";
 import {RepackStock} from "../entity/Inventory/repackStock";
 import {RepackTransfer} from "../entity/Inventory/RePackTransfer";
 import {RepackTransferDetail} from "../entity/Inventory/RepackTransferDetails";
-
+//import {T}}
 // import {DistributerSalesPersion} from "../entity/Purchase/Distributer/DistributerSalespersion";
-
+import {TransporterMaster} from "../entity/Purchase/TransporterMaster";
 
 
 export const connection = createConnection({
@@ -68,7 +68,7 @@ export const connection = createConnection({
         DistributerDeliveryPersion,
         DistributerLandline,
         DistributerMail,
-        CategoryVsBrand,
+        CategoryVsBrand,TransporterMaster,
         // DistributerSalesPersion,
         OrderVsDelivery, CategoryVsManufacturer
     ],
