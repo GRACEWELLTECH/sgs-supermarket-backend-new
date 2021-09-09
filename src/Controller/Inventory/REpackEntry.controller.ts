@@ -95,7 +95,26 @@ export class RepackEntryController{
         })
 
         getRepository(RepackTransferDetail).save(detailList).then(savedObj=>{
-            savedObj.forEach(item=>{
+            savedObj.forEach(async item=>{
+             let stock=  await getRepository(RepackStock).findOne({where:{product:item.product}});
+                if(item.from=="Warehouse")
+                {
+                    stock.wareHouse=stock.wareHouse-item.quantity;
+                }else if (item.from=="Store")
+                {
+                    stock.store=stock.store-item.quantity;
+                }else if(item.from=="Shop"){
+                    stock.shop=stock.shop-item.quantity;
+                }
+
+                if(item.to=="Warehouse"){
+                    stock.wareHouse=stock.wareHouse+item.quantity;
+                }else if (item.to=="Store")
+                {
+                    stock.store=stock.store+item.quantity;
+                }else if(item.to=="Shop"){
+                    stock.shop=stock.shop+item.quantity;
+                }
 
             })
             return res.status(200).json({message:"Success",data:savedObj});
@@ -117,5 +136,14 @@ export class RepackEntryController{
             return res.status(400).json({message:"Error",error:error});
 
         })
+    }
+
+
+    getAllStock(req, res,next){
+         getRepository(RepackStock).find().then(repos=>{
+             return res.status(200).json({message:"Success",data:repos});
+         }).catch(error=>{
+             return res.status(400).json({message:"Error",error:error});
+         })
     }
 }
