@@ -137,6 +137,16 @@ export class RepackEntryController{
 
         })
     }
+    getTransferById(req, res,next){
+
+        getRepository(RepackTransfer).find({where:{id:req.params.id},relations:["detail","detail.product"]}).
+        then(list => {
+            return res.status(200).json({message:"Success",data:list});
+        }).catch(error=>{
+            return res.status(400).json({message:"Error",error:error});
+
+        })
+    }
 
 
     getAllStock(req, res,next){
@@ -145,5 +155,9 @@ export class RepackEntryController{
          }).catch(error=>{
              return res.status(400).json({message:"Error",error:error});
          })
+    }
+
+    stockUpdate(req, res,next){
+
     }
 }
