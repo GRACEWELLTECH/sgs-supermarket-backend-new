@@ -18,4 +18,6 @@ export class RepackTransferDetail{
     @Column()
     to:string;
 
+    @ManyToOne(()=>RepackTransfer,(repack)=>repack.id)
+    transfer:number;
 }

@@ -3,6 +3,8 @@ import {getRepository} from 'typeorm'
 import {RepackEntry} from '../../entity/Inventory/RepackEntry'
 import {Repack} from '../../entity/Inventory/Repack'
 import {RepackStock} from '../../entity/Inventory/repackStock'
+import {RepackTransfer} from '../../entity/Inventory/RePackTransfer'
+import {RepackTransferDetail} from '../../entity/Inventory/RepackTransferDetails'
 
 
 export class RepackEntryController{
@@ -72,8 +74,46 @@ export class RepackEntryController{
         })
     }
 
-    RePackTransfer(req, res,next){
+    async RePackTransfer(req, res,next){
 
+        let transferObj=new RepackTransfer();
+
+        transferObj.transferFrom=req.body.transferFrom;
+        transferObj.transferTo=req.body.transferTo;
+
+        let tranfer=await getRepository(RepackTransfer).save(transferObj)
+        let prodList=req.body.product;
+        let detailList:RepackTransferDetail[]=[];
+        prodList.forEach(item=>{
+            let NewObj=new RepackTransferDetail();
+            NewObj.to=tranfer.transferTo;
+            NewObj.from=tranfer.transferFrom;
+            NewObj.quantity=item.quantity;
+            NewObj.product=item.productId;
+            NewObj.transfer=tranfer.id;
+            detailList.push(NewObj);
+        })
+
+        getRepository(RepackTransferDetail).save(detailList).then(savedObj=>{
+            
+            return res.status(200).json({message:"Success",data:savedObj});
+
+        }).catch(error=>{
+            return res.status(400).json({message:"Error",error:error});
+
+        })
       
+    }
+
+
+    getAllTransfer(req, res,next){
+
+        getRepository(RepackTransfer).find({relations:["detail","detail.product"]}).
+        then(list => {
+            return res.status(200).json({message:"Success",data:list});
+        }).catch(error=>{
+            return res.status(400).json({message:"Error",error:error});
+
+        })
     }
 }

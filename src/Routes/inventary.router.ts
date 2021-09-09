@@ -42,4 +42,7 @@ inventoryRouter.get('/getAllRepack',repack.getAllRepack)
 inventoryRouter.get('/getAllRepackEntry',repack.getAllRepackEntry)
 inventoryRouter.get('/getRepackEntryByRepack/:id',repack.getRepackEntryByRepack)
 
+inventoryRouter.post('/RepackTransfer',repack.RePackTransfer)
+inventoryRouter.get('/getAllRepackTransfer',repack.getAllTransfer)
+
 export default inventoryRouter;
