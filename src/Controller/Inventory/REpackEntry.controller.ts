@@ -140,7 +140,7 @@ export class RepackEntryController{
     }
     getTransferById(req, res,next){
 
-        getRepository(RepackTransfer).find({where:{id:req.params.id},relations:["detail","detail.product"]}).
+        getRepository(RepackTransferDetail).find({where:{transfer:req.params.id},relations:["product","transfer"]}).
         then(list => {
             return res.status(200).json({message:"Success",data:list});
         }).catch(error=>{
