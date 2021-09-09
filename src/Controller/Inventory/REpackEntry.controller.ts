@@ -5,6 +5,7 @@ import {Repack} from '../../entity/Inventory/Repack'
 import {RepackStock} from '../../entity/Inventory/repackStock'
 import {RepackTransfer} from '../../entity/Inventory/RePackTransfer'
 import {RepackTransferDetail} from '../../entity/Inventory/RepackTransferDetails'
+import { Controller } from '../Controller';
 
 
 export class RepackEntryController{
@@ -158,6 +159,23 @@ export class RepackEntryController{
     }
 
     stockUpdate(req, res,next){
+        let list=req.body.stock;
+        list.forEach(item=>{
+            if(req.body.updateStockfor=="Warehouse")
+            {
+                item.wareHouse=item.wareHouse+item.quantity;
+            }else if(req.body.updateStockfor=="Store"){
+                item.store=item.store+item.quantity;
+            }else{
+                item.shop=item.shop+item.quantity;
+            }
+        });
+
+        getRepository(RepackStock).save(list).then(savedObj=>{
+            return res.status(200).json({message:"Success",data:savedObj});
+         }).catch(error=>{
+             return res.status(400).json({message:"Error",error:error});
+         })
 
     }
 }
