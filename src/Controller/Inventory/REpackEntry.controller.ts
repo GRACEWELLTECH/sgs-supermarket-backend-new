@@ -5,7 +5,7 @@ import {Repack} from '../../entity/Inventory/Repack'
 import {RepackStock} from '../../entity/Inventory/repackStock'
 import {RepackTransfer} from '../../entity/Inventory/RePackTransfer'
 import {RepackTransferDetail} from '../../entity/Inventory/RepackTransferDetails'
-import { Controller } from '../Controller';
+
 
 
 export class RepackEntryController{
