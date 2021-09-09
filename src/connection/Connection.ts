@@ -27,6 +27,7 @@ import {prepareAssemblyKit} from "../entity/Inventory/assemblykit_prepare";
 import {CategoryVsBrand} from "../entity/Purchase/CategoryVsBrand";
 import {RepackEntry} from "../entity/Inventory/RepackEntry";
 import {Repack} from "../entity/Inventory/Repack";
+import {RepackStock} from "../entity/Inventory/RepackStock";
 
 // import {DistributerSalesPersion} from "../entity/Purchase/Distributer/DistributerSalespersion";
 
@@ -56,6 +57,7 @@ export const connection = createConnection({
         prepareAssemblyKit,
         RepackEntry,
         Repack,
+        RepackStock,
         //purchease 
         Distributor,
         DistributerDeliveryPersion,
