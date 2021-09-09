@@ -25,6 +25,7 @@ import {Assemblykit} from "../entity/Inventory/assemblykit_create";
 import {GiftVoucher} from "../entity/Inventory/GiftVoucher_create";
 import {prepareAssemblyKit} from "../entity/Inventory/assemblykit_prepare";
 import {CategoryVsBrand} from "../entity/Purchase/CategoryVsBrand";
+import {CategoryVsManufacturer} from "../entity/Purchase/CategoryVsManufacturer";
 import {RepackEntry} from "../entity/Inventory/RepackEntry";
 import {Repack} from "../entity/Inventory/Repack";
 import {RepackStock} from "../entity/Inventory/repackStock";
@@ -69,7 +70,7 @@ export const connection = createConnection({
         DistributerMail,
         CategoryVsBrand,
         // DistributerSalesPersion,
-        OrderVsDelivery
+        OrderVsDelivery, CategoryVsManufacturer
     ],
     synchronize: true,
     logging: false
