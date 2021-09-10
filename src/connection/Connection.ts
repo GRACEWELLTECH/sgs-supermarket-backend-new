@@ -33,6 +33,9 @@ import {RepackTransfer} from "../entity/Inventory/RePackTransfer";
 import {RepackTransferDetail} from "../entity/Inventory/RepackTransferDetails";
 import {RepackWastage} from "../entity/Inventory/RepackWastage";
 import {RepackWastageDetail} from "../entity/Inventory/RepackWastageDetail";
+
+import {RepackWeightloss} from '../entity/Inventory/RepackweightLoss'
+import {RepackweightLossDetail} from '../entity/Inventory/RepackWeightLossDetails'
 //import {T}}
 // import {DistributerSalesPersion} from "../entity/Purchase/Distributer/DistributerSalespersion";
 import {TransporterMaster} from "../entity/Purchase/TransporterMaster";
@@ -50,8 +53,7 @@ export const connection = createConnection({
         ProductType,ProductSubType,
         Kind,SubKind,
         WeightUnit,
-        Manufacturer,
-        Brand,
+        Manufacturer,Brand,
         Product,Gst,
         ManufacyturerVsBrand,
         //inventoary
@@ -60,13 +62,11 @@ export const connection = createConnection({
         Assemblykit,
         GiftVoucher,
         prepareAssemblyKit,
-        RepackEntry,
-        Repack,
+        RepackEntry,Repack,
         RepackStock,
-        RepackTransfer,
-        RepackTransferDetail,
-        RepackWastage,
-        RepackWastageDetail,
+        RepackTransfer,RepackTransferDetail,
+        RepackWastage,RepackWastageDetail,
+        RepackWeightloss,RepackweightLossDetail,
         //purchease 
         Distributor,
         DistributerDeliveryPersion,

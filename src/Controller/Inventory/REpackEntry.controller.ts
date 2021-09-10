@@ -9,7 +9,8 @@ import {RepackTransfer} from '../../entity/Inventory/RePackTransfer'
 import {RepackTransferDetail} from '../../entity/Inventory/RepackTransferDetails'
 import { RepackWastage } from '../../entity/Inventory/RepackWastage';
 import { RepackWastageDetail } from '../../entity/Inventory/RepackWastageDetail';
-
+import {RepackWeightloss} from '../../entity/Inventory/RepackweightLoss'
+import {RepackweightLossDetail} from '../../entity/Inventory/RepackWeightLossDetails'
 
 
 export class RepackEntryController{
@@ -230,6 +231,45 @@ export class RepackEntryController{
     async getRepackWastageDetail(req, res,next){
        
         getRepository(RepackWastageDetail).find({relations:["product"],where:{wastage:req.params.id}}).then(list=>{
+            return res.status(200).json({message:"Success",data:list});
+        }).catch(error=>{
+            return res.status(200).json({message:"error",error:error});
+        })
+    }
+
+    async RepackWeightLossEntry(req,res,next){
+
+        let reg=await getRepository(RepackWeightloss).save(new RepackWeightloss())
+
+        let listtoSave=req.body;
+        let tosave=[];
+        listtoSave.forEach(item=>{
+            let newObj=new RepackweightLossDetail();
+            newObj.product=item.product;
+            newObj.weight=item.weight;
+            newObj.register=reg.id;
+            tosave.push(newObj);
+        })
+
+        getRepository(RepackweightLossDetail).save(tosave).then(list=>{
+            return res.status(200).json({message:"Success",data:list});
+        }).catch(error=>{
+            return res.status(200).json({message:"error",error:error});
+        })
+    }
+
+    getAllRepackWeightLoss(req, res,next){
+        
+        getRepository(RepackWeightloss).find().then(list=>{
+            return res.status(200).json({message:"Success",data:list});
+        }).catch(error=>{
+            return res.status(200).json({message:"error",error:error});
+        })
+    }
+
+    async getRepackWeightlossDetail(req, res,next){
+       
+        getRepository(RepackweightLossDetail).find({relations:["product","register"],where:{register:req.params.id}}).then(list=>{
             return res.status(200).json({message:"Success",data:list});
         }).catch(error=>{
             return res.status(200).json({message:"error",error:error});
