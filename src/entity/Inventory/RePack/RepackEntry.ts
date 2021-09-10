@@ -1,7 +1,7 @@
 import {Entity, PrimaryGeneratedColumn, Column,ManyToOne} from 'typeorm'
 
-import {Product} from  '../../entity/Product'
-import {Repack} from '../../entity/Inventory/Repack'
+import {Product} from  '../../Product'
+import {Repack} from './Repack'
 
 @Entity()
 export class RepackEntry

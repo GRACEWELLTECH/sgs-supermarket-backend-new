@@ -10,10 +10,11 @@ export class RepackTransfer{
 
     @Column()
     transferTo:string;
+   
     @Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP'})
     transferOn:Date;
 
-    @OneToMany(()=>RepackTransferDetail,(repackTransferDetail)=>repackTransferDetail.transfer)
-    detail: RepackTransferDetail[]
+    @OneToMany(()=>RepackTransferDetail,(detail)=>detail.transfer)
+    detail: RepackTransferDetail[];
 
 }

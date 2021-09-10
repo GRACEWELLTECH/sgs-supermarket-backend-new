@@ -2,11 +2,13 @@ import {Request, Response} from 'express';
 import {getRepository,In} from 'typeorm';
 
 import {Product} from '../../entity/Product'
-import {RepackEntry} from '../../entity/Inventory/RepackEntry'
-import {Repack} from '../../entity/Inventory/Repack'
-import {RepackStock} from '../../entity/Inventory/repackStock'
-import {RepackTransfer} from '../../entity/Inventory/RePackTransfer'
-import {RepackTransferDetail} from '../../entity/Inventory/RepackTransferDetails'
+import {RepackEntry} from '../../entity/Inventory/RePack/RepackEntry'
+import {Repack} from '../../entity/Inventory/RePack/Repack'
+import {RepackStock} from '../../entity/Inventory/RePack/repackStock'
+import {RepackTransfer} from '../../entity/Inventory/RePack/RePackTransfer'
+import {RepackTransferDetail} from '../../entity/Inventory/RePack/RepackTransferDetails'
+import { RepackWastage } from '../../entity/Inventory/RePack/RepackWastage';
+import { RepackWastageDetail } from '../../entity/Inventory/RePack/RepackWastageDetail';
 
 
 
@@ -193,5 +195,27 @@ export class RepackEntryController{
              return res.status(400).json({message:"Error",error:error});
          })
 
+    }
+
+
+    async RepackWastageEntry(req, res,next){
+        
+        let wastage=await getRepository(RepackWastage).save(new RepackWastage());
+        
+        let details=req.body;
+        var savelist=[];
+        details.forEach(item=>{
+            let newObj=new RepackWastageDetail();
+            newObj.product=item.product;
+            newObj.weight=item.weight;
+            newObj.wastage=wastage.id;
+            savelist.push(newObj);
+        })
+
+        getRepository(RepackWastageDetail).save(savelist).then(list=>{
+            return res.status(200).json({meaasage:"success",data:list});
+        }).catch(error=>{
+            return res.status(404).json({meaasage:"error",Error:error});
+        })
     }
 }

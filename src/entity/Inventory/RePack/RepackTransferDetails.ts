@@ -1,6 +1,7 @@
 import { Entity, PrimaryGeneratedColumn, Column,ManyToOne} from 'typeorm';
-import {RepackTransfer} from './RePackTransfer'
-import {Product} from '../Product'
+import {RepackTransfer} from './RePackTransfer';
+import {Product} from '../../Product';
+
 @Entity()
 export class RepackTransferDetail{
     @PrimaryGeneratedColumn()
@@ -18,6 +19,6 @@ export class RepackTransferDetail{
     @Column()
     to:string;
 
-    @ManyToOne(()=>RepackTransfer,(repack)=>repack.id)
+    @ManyToOne(()=>RepackTransfer,(repackTransfer)=>repackTransfer.id)
     transfer:number;
 }

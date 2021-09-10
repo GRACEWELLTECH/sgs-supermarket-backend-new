@@ -1,6 +1,6 @@
 import { Entity, PrimaryGeneratedColumn, Column, ManyToOne} from 'typeorm';
 
-import {Product} from '../../entity/Product'
+import {Product} from '../../Product'
 
 @Entity()
 export class RepackStock

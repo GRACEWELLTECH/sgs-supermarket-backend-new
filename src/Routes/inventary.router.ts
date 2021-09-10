@@ -41,7 +41,7 @@ inventoryRouter.post('/repackEntry',repack.repackEntry)
 inventoryRouter.get('/getAllRepack',repack.getAllRepack)
 inventoryRouter.get('/getAllRepackEntry',repack.getAllRepackEntry)
 inventoryRouter.get('/getRepackEntryByRepack/:id',repack.getRepackEntryByRepack)
-
+// REpack
 inventoryRouter.post('/RepackTransfer',repack.RePackTransfer)
 inventoryRouter.get('/getAllRepackTransfer',repack.getAllTransfer)
 inventoryRouter.get('/getRepackTransferById/:id',repack.getTransferById)
@@ -49,5 +49,6 @@ inventoryRouter.get('/getAllStock',repack.getAllStock)
 inventoryRouter.post('/stockUpdate',repack.stockUpdate)
 inventoryRouter.get('/getREpackStockbyBulk/:id',repack.getREpackStockbyBulk)
 
-
+//Repack-wastage
+inventoryRouter.post('/RepackWastageEntry',repack.RepackWastageEntry)
 export default inventoryRouter;
