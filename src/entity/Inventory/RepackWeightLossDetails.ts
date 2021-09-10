@@ -1,7 +1,7 @@
 import { Entity, PrimaryGeneratedColumn, Column,ManyToOne} from 'typeorm'
 
 import {Product} from '../Product'
-import{RepackWeightloss} from './RepackweightLoss';
+import{RepackWeightloss} from './RepackWeightLoss';
 
 @Entity()
 export class RepackweightLossDetail{
