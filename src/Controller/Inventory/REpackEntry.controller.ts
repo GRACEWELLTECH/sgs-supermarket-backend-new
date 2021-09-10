@@ -184,11 +184,11 @@ export class RepackEntryController{
         list.forEach(item=>{
             if(req.body.updateStockfor=="wareHouse")
             {
-                item.wareHouse=item.wareHouse+item.quantity;
+                item.wareHouse=item.wareHouse+parseInt(item.quantity);
             }else if(req.body.updateStockfor=="store"){
-                item.store=item.store+item.quantity;
+                item.store=item.store+parseInt(item.quantity);
             }else if(req.body.updateStockfor=="shop"){
-                item.shop=item.shop+item.quantity;
+                item.shop=item.shop+parseInt(item.quantity);
             }
         });
 
