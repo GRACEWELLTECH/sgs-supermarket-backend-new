@@ -187,7 +187,7 @@ export class RepackEntryController{
                 item.wareHouse=item.wareHouse+item.quantity;
             }else if(req.body.updateStockfor=="Store"){
                 item.store=item.store+item.quantity;
-            }else{
+            }else if(req.body.updateStockfor=="Shop"){
                 item.shop=item.shop+item.quantity;
             }
         });
