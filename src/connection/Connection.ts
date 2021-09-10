@@ -34,8 +34,10 @@ import {RepackTransferDetail} from "../entity/Inventory/RepackTransferDetails";
 import {RepackWastage} from "../entity/Inventory/RepackWastage";
 import {RepackWastageDetail} from "../entity/Inventory/RepackWastageDetail";
 
-import {RepackWeightloss} from '../entity/Inventory/RepackWeightLoss'
-import {RepackweightLossDetail} from '../entity/Inventory/RepackWeightLossDetails'
+import {RepackWeightloss} from '../entity/Inventory/RepackWeightLoss';
+import {RepackweightLossDetail} from '../entity/Inventory/RepackWeightLossDetails';
+import {RepackReuse} from '../entity/Inventory/RepackReuse'
+import {RepackReuseDetail} from '../entity/Inventory/RepackReuseDetail'
 //import {T}}
 // import {DistributerSalesPersion} from "../entity/Purchase/Distributer/DistributerSalespersion";
 import {TransporterMaster} from "../entity/Purchase/TransporterMaster";
@@ -66,7 +68,7 @@ export const connection = createConnection({
         RepackStock,
         RepackTransfer,RepackTransferDetail,
         RepackWastage,RepackWastageDetail,
-        RepackWeightloss,RepackweightLossDetail,
+        RepackWeightloss,RepackweightLossDetail,RepackReuse,RepackReuseDetail,
         //purchease 
         Distributor,
         DistributerDeliveryPersion,

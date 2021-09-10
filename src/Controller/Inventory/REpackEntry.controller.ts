@@ -11,6 +11,8 @@ import { RepackWastage } from '../../entity/Inventory/RepackWastage';
 import { RepackWastageDetail } from '../../entity/Inventory/RepackWastageDetail';
 import {RepackWeightloss} from '../../entity/Inventory/RepackWeightLoss'
 import {RepackweightLossDetail} from '../../entity/Inventory/RepackWeightLossDetails'
+import {RepackReuse} from '../../entity/Inventory/RepackReuse'
+import {RepackReuseDetail} from '../../entity/Inventory/RepackReuseDetail'
 
 
 export class RepackEntryController{
@@ -279,8 +281,33 @@ export class RepackEntryController{
 
     async getDetailsForReUse(req, res,next){
 
-     let list=await   getRepository(Product).query("select a.id,a.productName ,0 as 'quantity',a.bulkProduct,b.productName as 'bulkProductName',0 as 'availableQuantity' from product a,product b where a.bulkProduct=b.id;")
+     let list=await   getRepository(Product).query("select a.id as 'product',a.productName ,0 as 'quantity',a.bulkProduct,b.productName as 'bulkProductName',0 as 'availableQuantity' from product a,product b where a.bulkProduct=b.id;")
     return res.status(200).json({message:"asd",data:list})
+    }
+
+    async saveRepackReuse(req, res,next){
+        let reg=await getRepository(RepackReuse).save(new RepackReuse());
+
+        let list=req.body;
+
+        let arrayToSave=[];
+
+        list.forEach(item=>{
+            let newObj=new RepackReuseDetail();
+            newObj.product=item.product;
+            newObj.quantity=item.quantity;
+            newObj.bulkProduct=item.bulkProduct;
+            newObj.availableQuantity=item.availableQuantity;
+            newObj.register=reg.id
+            arrayToSave.push(newObj);
+        })
+
+        getRepository(RepackReuseDetail).save(arrayToSave).then(result=>{
+            return res.status(200).json({message:"Success",data:result});
+        }).catch(error=>{
+            return res.status(200).json({message:"error",error:error});
+        })
+
     }
     
 }
