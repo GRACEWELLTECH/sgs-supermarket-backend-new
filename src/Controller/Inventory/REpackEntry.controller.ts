@@ -9,7 +9,7 @@ import {RepackTransfer} from '../../entity/Inventory/RePackTransfer'
 import {RepackTransferDetail} from '../../entity/Inventory/RepackTransferDetails'
 import { RepackWastage } from '../../entity/Inventory/RepackWastage';
 import { RepackWastageDetail } from '../../entity/Inventory/RepackWastageDetail';
-import {RepackWeightloss} from '../../entity/Inventory/RepackweightLoss'
+import {RepackWeightloss} from '../../entity/Inventory/RepackWeightLoss'
 import {RepackweightLossDetail} from '../../entity/Inventory/RepackWeightLossDetails'
 
 
