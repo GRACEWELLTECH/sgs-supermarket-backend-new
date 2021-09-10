@@ -41,7 +41,7 @@ export class RepackEntryController{
                 let stockObj:RepackStock;
                 if(stock>0){
                     stockObj=await getRepository(RepackStock).findOne({where:{product:item.product}})
-                        stockObj.wareHouse=stockObj.wareHouse+item.quantity
+                    stockObj.wareHouse=stockObj.wareHouse+parseInt(item.quantity)
                 }else{
                     stockObj=new RepackStock();
                     stockObj.product=item.product;
