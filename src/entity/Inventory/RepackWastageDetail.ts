@@ -1,7 +1,7 @@
 
 import {Entity, PrimaryGeneratedColumn, Column, ManyToOne} from 'typeorm'
 
-import {Product} from '../../Product';
+import {Product} from '../Product';
 import {RepackWastage} from './RepackWastage'
 @Entity()
 export class RepackWastageDetail {

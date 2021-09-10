@@ -1,6 +1,6 @@
 import { Entity, PrimaryGeneratedColumn, Column,ManyToOne} from 'typeorm';
 import {RepackTransfer} from './RePackTransfer';
-import {Product} from '../../Product';
+import {Product} from '../Product';
 
 @Entity()
 export class RepackTransferDetail{

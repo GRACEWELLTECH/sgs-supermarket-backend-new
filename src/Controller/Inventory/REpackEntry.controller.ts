@@ -2,13 +2,13 @@ import {Request, Response} from 'express';
 import {getRepository,In} from 'typeorm';
 
 import {Product} from '../../entity/Product'
-import {RepackEntry} from '../../entity/Inventory/RePack/RepackEntry'
-import {Repack} from '../../entity/Inventory/RePack/Repack'
-import {RepackStock} from '../../entity/Inventory/RePack/repackStock'
-import {RepackTransfer} from '../../entity/Inventory/RePack/RePackTransfer'
-import {RepackTransferDetail} from '../../entity/Inventory/RePack/RepackTransferDetails'
-import { RepackWastage } from '../../entity/Inventory/RePack/RepackWastage';
-import { RepackWastageDetail } from '../../entity/Inventory/RePack/RepackWastageDetail';
+import {RepackEntry} from '../../entity/Inventory/RepackEntry'
+import {Repack} from '../../entity/Inventory/Repack'
+import {RepackStock} from '../../entity/Inventory/repackStock'
+import {RepackTransfer} from '../../entity/Inventory/RePackTransfer'
+import {RepackTransferDetail} from '../../entity/Inventory/RepackTransferDetails'
+import { RepackWastage } from '../../entity/Inventory/RepackWastage';
+import { RepackWastageDetail } from '../../entity/Inventory/RepackWastageDetail';
 
 
 
@@ -134,7 +134,7 @@ export class RepackEntryController{
 
     getAllTransfer(req, res,next){
 
-        getRepository(RepackTransfer).find({relations:["detail","detail.product"]}).
+        getRepository(RepackTransfer).find().
         then(list => {
             return res.status(200).json({message:"Success",data:list});
         }).catch(error=>{

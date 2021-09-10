@@ -11,6 +11,6 @@ export class RepackWastage {
     @Column({type: 'timestamp', default: () => 'CURRENT_TIMESTAMP'})
     entryOn:Date;
 
-    // @OneToMany(()=>RepackWastageDetail,(repackWastageDetail)=>repackWastageDetail.wastage)
-    // detail: RepackWastageDetail[]
+    @OneToMany(()=>RepackWastageDetail,(repackWastageDetail)=>repackWastageDetail.wastage)
+    detail: RepackWastageDetail[]
 }
