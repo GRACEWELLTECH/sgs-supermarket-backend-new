@@ -279,7 +279,7 @@ export class RepackEntryController{
 
     async getDetailsForReUse(req, res,next){
 
-     let list=await   getRepository(Product).query("select a.id,a.productName ,0 as 'quantity',a.bulkProduct,b.productName as 'bulkProductName',0 as 'availableQuantity', from product a,product b where a.bulkProduct=b.id;")
+     let list=await   getRepository(Product).query("select a.id,a.productName ,0 as 'quantity',a.bulkProduct,b.productName as 'bulkProductName',0 as 'availableQuantity' from product a,product b where a.bulkProduct=b.id;")
     return res.status(200).json({message:"asd",data:list})
     }
     
