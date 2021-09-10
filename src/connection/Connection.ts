@@ -34,7 +34,7 @@ import {RepackTransferDetail} from "../entity/Inventory/RepackTransferDetails";
 import {RepackWastage} from "../entity/Inventory/RepackWastage";
 import {RepackWastageDetail} from "../entity/Inventory/RepackWastageDetail";
 
-import {RepackWeightloss} from '../entity/Inventory/RepackweightLoss'
+import {RepackWeightloss} from '../entity/Inventory/RepackWeightLoss'
 import {RepackweightLossDetail} from '../entity/Inventory/RepackWeightLossDetails'
 //import {T}}
 // import {DistributerSalesPersion} from "../entity/Purchase/Distributer/DistributerSalespersion";
