@@ -275,5 +275,12 @@ export class RepackEntryController{
             return res.status(200).json({message:"error",error:error});
         })
     }
+
+
+    async getDetailsForReUse(req, res,next){
+
+     let list=await   getRepository(Product).query("select a.id,a.productName ,a.bulkProduct,b.productName as 'bulkProductName' from product a,product b where a.bulkProduct=b.id;")
+    return res.status(200).json({message:"asd",data:list})
+    }
     
 }

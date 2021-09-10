@@ -58,4 +58,6 @@ inventoryRouter.get('/getRepackWastageDetail/:id',repack.getRepackWastageDetail)
 inventoryRouter.post('/repackWeightLossEntry',repack.RepackWeightLossEntry)
 inventoryRouter.get('/getAllRepackWeightLoss',repack.getAllRepackWeightLoss)
 inventoryRouter.get('/getRepackWeightlossDetail/:id',repack.getRepackWeightlossDetail)
+
+inventoryRouter.get('/getRepackwithBulk',repack.getDetailsForReUse)
 export default inventoryRouter;
