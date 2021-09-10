@@ -51,4 +51,6 @@ inventoryRouter.get('/getREpackStockbyBulk/:id',repack.getREpackStockbyBulk)
 
 //Repack-wastage
 inventoryRouter.post('/RepackWastageEntry',repack.RepackWastageEntry)
+inventoryRouter.get('/getAllRepackWastage',repack.getAllRepackWastage)
+inventoryRouter.get('/getRepackWastageDetail/:id',repack.getRepackWastageDetail)
 export default inventoryRouter;

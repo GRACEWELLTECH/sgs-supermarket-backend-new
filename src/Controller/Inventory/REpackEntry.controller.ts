@@ -218,4 +218,22 @@ export class RepackEntryController{
             return res.status(404).json({meaasage:"error",Error:error});
         })
     }
+
+    async getAllRepackWastage(req, res,next){
+       
+        getRepository(RepackWastage).find().then(list=>{
+            return res.status(200).json({message:"Success",data:list});
+        }).catch(error=>{
+            return res.status(200).json({message:"error",error:error});
+        })
+    }
+    async getRepackWastageDetail(req, res,next){
+       
+        getRepository(RepackWastageDetail).find({relations:["product"],where:{wastage:req.params.id}}).then(list=>{
+            return res.status(200).json({message:"Success",data:list});
+        }).catch(error=>{
+            return res.status(200).json({message:"error",error:error});
+        })
+    }
+    
 }
