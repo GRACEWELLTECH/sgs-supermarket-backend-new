@@ -23,6 +23,8 @@ import {WeightUnit} from "../entity/WeightUnit"
 import {OrderVsDelivery} from "../entity/Purchase/Distributer/OrderVsDelivery";
 import {Assemblykit} from "../entity/Inventory/assemblykit_create";
 import {GiftVoucher} from "../entity/Inventory/GiftVoucher_create";
+import {GiftvoucherClaim} from "../entity/Inventory/GiftVoucher_claim"
+import {GiftvoucherIssue} from "../entity/Inventory/GiftVoucher_issue"
 import {prepareAssemblyKit} from "../entity/Inventory/assemblykit_prepare";
 import {CategoryVsBrand} from "../entity/Purchase/CategoryVsBrand";
 import {CategoryVsManufacturer} from "../entity/Purchase/CategoryVsManufacturer";
@@ -62,6 +64,8 @@ export const connection = createConnection({
         ItemVsEan,
         HsnVsGst,
         Assemblykit,
+        GiftvoucherClaim,
+        GiftvoucherIssue,
         GiftVoucher,
         prepareAssemblyKit,
         RepackEntry,Repack,
