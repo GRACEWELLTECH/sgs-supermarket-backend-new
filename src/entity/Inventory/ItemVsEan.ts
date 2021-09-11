@@ -1,13 +1,13 @@
-import { Entity, PrimaryGeneratedColumn, Column} from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column,ManyToOne} from "typeorm";
 
-
+import {Product} from '../Product'
 
 @Entity()
 export class ItemVsEan{
     @PrimaryGeneratedColumn()
     id: number;
 
-    @Column()
+    @ManyToOne(()=>Product,(product)=>product.id)
     productId: number;
 
     @Column()

@@ -24,4 +24,12 @@ let savearray:ItemVsEan[]=[];
         })
 
     }
+
+   async getEanByItem(req, res,next){
+            getRepository(ItemVsEan).find({where:{productId:req.params.id}}).then(list => {
+                return res.status(200).json({message: 'Success',data:list});
+            }).catch(err => {
+                return res.status(400).json({message: 'Errror',Error:err});
+            })
+    }
 }
