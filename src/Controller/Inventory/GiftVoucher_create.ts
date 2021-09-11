@@ -91,6 +91,40 @@ export class GiftVouchercreateController{
             return res.status(400).json({message:"error",error:error});
         })
     }
+
+
+    getAllGiftvoucherClaim(req, res) {
+        
+        getRepository(GiftvoucherClaim).find().then(list=>{
+            return res.status(200).json({message:"success",data:list});
+        }).catch(error=>{
+            return res.status(400).json({message:"Error",Error:error});
+        })
+    }
+    getGiftvoucherClaimById(req, res) {
+        
+        getRepository(GiftvoucherClaim).find({where:{giftVoucher:req.params.id}}).then(list=>{
+            return res.status(200).json({message:"success",data:list});
+        }).catch(error=>{
+            return res.status(400).json({message:"Error",Error:error});
+        })
+    }
+    getAllGiftvoucherIssue(req, res) {
+        
+        getRepository(GiftvoucherIssue).find().then(list=>{
+            return res.status(200).json({message:"success",data:list});
+        }).catch(error=>{
+            return res.status(400).json({message:"Error",Error:error});
+        })
+    }
+    getGiftvoucherIssueById(req, res) {
+        
+        getRepository(GiftvoucherIssue).find({where:{giftVoucher:req.params.id}}).then(list=>{
+            return res.status(200).json({message:"success",data:list});
+        }).catch(error=>{
+            return res.status(400).json({message:"Error",Error:error});
+        })
+    }
 }
 
 

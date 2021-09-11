@@ -37,6 +37,13 @@ inventoryRouter.get('/getGiftVoucher',giftvoucher.getGiftVoucher)
 inventoryRouter.post('/claimGiftVoucher',giftvoucher.giftvoucherClaim)
 inventoryRouter.post('/issueGiftVoucher',giftvoucher.giftvoucherIssue)
 
+
+inventoryRouter.get('/getAllGiftVoucherClaim',giftvoucher.getAllGiftvoucherClaim)
+inventoryRouter.get('/getGiftvoucherClaimById/:id',giftvoucher.getGiftvoucherClaimById)
+inventoryRouter.get('/getAllGiftvoucherIssue',giftvoucher.getAllGiftvoucherIssue)
+inventoryRouter.get('/getGiftvoucherClaimById/:id',giftvoucher.getGiftvoucherIssueById)
+
+
 //repackEntryController
 inventoryRouter.post('/repackEntry',repack.repackEntry)
 inventoryRouter.get('/getAllRepack',repack.getAllRepack)
