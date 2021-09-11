@@ -27,7 +27,7 @@ inventoryRouter.get('/getHsnByGst/:gstId',hsnVsGst.getHSNbyGSt)
 //Assemply
 inventoryRouter.post('/createAssemply',assemply.createAssemplykit)
 inventoryRouter.get('/getAllAssemplykit',assemply.getAllAssemplyKit)
-inventoryRouter.get('/getAssemplykitByType/:type',assemply.getAllAssemplyKit)
+inventoryRouter.get('/getAssemplykitByType/:type',assemply.getAssemplyKitByType)
 inventoryRouter.post('/prepareAssemply',assemply.prepareAssemblyKit)
 inventoryRouter.get('/productsbyAssemply/:id',assemply.getAssemplyproducts)
 
