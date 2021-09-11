@@ -16,7 +16,7 @@ const inventoryRouter = Router();
 
 //Item Vs 
 inventoryRouter.post('/assignItemVsEan',itemVsEan.createEan)
-inventoryRouter.get('/getEanByItem/id',itemVsEan.createEan)
+inventoryRouter.get('/getEanByItem/:id',itemVsEan.createEan)
 
 //Hsn Vs GST
 inventoryRouter.post('/hsnVsGst',hsnVsGst.assignHsnVsGst)
