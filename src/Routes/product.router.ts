@@ -76,7 +76,9 @@ productRouter.post('/createGst',gstController.CreateGst)
 productRouter.get('/getAllGst',gstController.getAllGst)
 productRouter.get('/getActiveGst',gstController.getActiveGst)
   
+//get product for various pages
 
+productRouter.get('/getProductWithEan',productController.getProductWithEan)
 
 
 

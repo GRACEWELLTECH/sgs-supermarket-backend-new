@@ -283,6 +283,16 @@ export class ProductController{
         })
     }
 
+getProductWithEan(req, res) {
+
+    getRepository(Product).query("SELECT A.*,b.id as 'assignId',b.eanCode,b.mrp,b.retail FROM product A Left Outer join item_vs_ean b on A.id=b.productIdId;" )
+
+    .then(result=>{
+        return res.status(200).json({data: result})
+    })
+    
+}
+
 }
 
 
