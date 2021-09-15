@@ -14,9 +14,11 @@ export default class OpeningStockController{
         await data.forEach(async element => {
             let newObj:OpeningStock;
             if(element.stockId!=null){
+                console.log("stockId-tr", element.stockId)
                 newObj=await getRepository(OpeningStock).findOne(element.stockId)
                 newObj.quantity+= parseInt(element.quantity);
             }else{
+                console.log("stockId", element.stockId)
                 newObj=new OpeningStock();
                 newObj.quantity=element.quantity;
             }
