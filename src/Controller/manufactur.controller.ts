@@ -4,7 +4,7 @@ import {getRepository} from "typeorm";
 
 import {Manufacturer} from "../entity/Manufacturer"
 import {Brand} from "../entity/Brand"
-import {ManufacyturerVsBrand} from "../entity/ManufacturerVsBrand"
+import ManufacyturerVsBrand from "../entity/ManufacturerVsBrand"
 
 export class ManufacturerController{
     async getManufacturer(req, res,next) {
