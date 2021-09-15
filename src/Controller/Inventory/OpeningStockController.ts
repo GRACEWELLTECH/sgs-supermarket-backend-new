@@ -12,11 +12,13 @@ export default class OpeningStockController{
         let data=req.body;
         let arrayTosave=[]
         data.forEach(async element => {
-            let newObj;
+            let newObj:OpeningStock;
             if(element.stockId!=null){
                 newObj=await getRepository(OpeningStock).findOne(element.stockId)
+                newObj.quantity+= isNaN(element.quantity)?parseInt(element.quantity):element.quantity
             }else{
                 newObj=new OpeningStock();
+                newObj.quantity=element.quantity;
             }
            
             newObj.product=element.product;
@@ -36,7 +38,7 @@ getProductsForOpeningStock(req,res,next){
 
     connection
     .then(async connection => {
-       let list=await connection.manager.query("select A.*,B.id as stockId,B.quantity as currentStock from product A left outer join opening_stock B on A.id=B.productId;");
+       let list=await connection.manager.query("select A.*,B.id as stockId,IFNULL(B.quantity,0) as currentStock from product A left outer join opening_stock B on A.id=B.productId;");
 
        return res.status(200).json({message:"Success",data:list})
     }).catch(err => {
