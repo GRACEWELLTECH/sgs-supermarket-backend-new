@@ -3,6 +3,7 @@ import { getRepository } from 'typeorm';
 import { connection } from '../../connection/Connection';
 
 import OpeningStock from '../../entity/Inventory/OpeningStock'
+import { Controller } from '../Controller';
 
 export default class OpeningStockController{
 
@@ -10,10 +11,14 @@ export default class OpeningStockController{
     {
         let data=req.body;
         let arrayTosave=[]
-        data.forEach(element => {
+        data.forEach(async element => {
             let newObj;
-            if(element.stockId)
-            =new OpeningStock();
+            if(element.stockId!=null){
+                newObj=await getRepository(OpeningStock).findOne(element.stockId)
+            }else{
+                newObj=new OpeningStock();
+            }
+           
             newObj.product=element.product;
             newObj.quantity=element.quantity;
             arrayTosave.push(newObj);
