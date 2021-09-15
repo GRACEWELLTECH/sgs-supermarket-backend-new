@@ -71,6 +71,6 @@ inventoryRouter.get('/getRepackWeightlossDetail/:id',repack.getRepackWeightlossD
 inventoryRouter.post('/saveRepackReuse',repack.saveRepackReuse)
 inventoryRouter.get('/getRepackwithBulk',repack.getDetailsForReUse)
 // openingStock
-inventoryRouter.get('/saveOpeningStock',openingStock.saveOpeningStock)
+inventoryRouter.post('/saveOpeningStock',openingStock.saveOpeningStock)
 inventoryRouter.get('/getProductsForOpeningStock',openingStock.getProductsForOpeningStock)
 export default inventoryRouter;
