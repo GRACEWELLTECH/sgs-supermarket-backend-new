@@ -15,7 +15,7 @@ export default class OpeningStockController{
             let newObj:OpeningStock;
             if(element.stockId!=null){
                 newObj=await getRepository(OpeningStock).findOne(element.stockId)
-                newObj.quantity+= isNaN(element.quantity)?parseInt(element.quantity):element.quantity
+                newObj.quantity+= parseInt(element.quantity);
             }else{
                 newObj=new OpeningStock();
                 newObj.quantity=element.quantity;
@@ -25,7 +25,7 @@ export default class OpeningStockController{
             newObj.quantity=element.quantity;
             arrayTosave.push(newObj);
         });
-
+        console.log("arrayTosave", arrayTosave)
         getRepository(OpeningStock).save(arrayTosave).then(result=>{
             return res.status(200).json({message:"Success",data:result});
         }).catch(error=>{
