@@ -3,7 +3,7 @@ import { getRepository } from 'typeorm';
 import { connection } from '../../connection/Connection';
 
 import OpeningStock from '../../entity/Inventory/OpeningStock'
-import { Controller } from '../Controller';
+
 
 export default class OpeningStockController{
 
