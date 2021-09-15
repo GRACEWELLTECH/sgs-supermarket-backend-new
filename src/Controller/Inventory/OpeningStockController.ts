@@ -36,7 +36,7 @@ getProductsForOpeningStock(req,res,next){
 
     connection
     .then(async connection => {
-       let list=await connection.manager.query("select A.*,B.id as stockId,B.quantity as currentStock, from product A left outer join opening_stock B on A.id=B.productId;");
+       let list=await connection.manager.query("select A.*,B.id as stockId,B.quantity as currentStock from product A left outer join opening_stock B on A.id=B.productId;");
 
        return res.status(200).json({message:"Success",data:list})
     }).catch(err => {
