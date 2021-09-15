@@ -11,7 +11,9 @@ export default class OpeningStockController{
         let data=req.body;
         let arrayTosave=[]
         data.forEach(element => {
-            let newObj=new OpeningStock();
+            let newObj;
+            if(element.stockId)
+            =new OpeningStock();
             newObj.product=element.product;
             newObj.quantity=element.quantity;
             arrayTosave.push(newObj);
@@ -29,7 +31,7 @@ getProductsForOpeningStock(req,res,next){
 
     connection
     .then(async connection => {
-       let list=await connection.manager.query("select A.*,B.id as stockId,B.quantity from product A left outer join opening_stock B on A.id=B.productId;");
+       let list=await connection.manager.query("select A.*,B.id as stockId,B.quantity as currentStock, from product A left outer join opening_stock B on A.id=B.productId;");
 
        return res.status(200).json({message:"Success",data:list})
     }).catch(err => {
