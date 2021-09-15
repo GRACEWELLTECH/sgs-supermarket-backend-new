@@ -28,3 +28,5 @@ export class Assemblykit {
     status: boolean;
 
 }
+
+export default Assemblykit

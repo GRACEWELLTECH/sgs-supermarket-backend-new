@@ -4,7 +4,7 @@ import {Brand} from './Brand';
 import {Manufacturer} from './Manufacturer';
 
 @Entity()
-export class ManufacyturerVsBrand{
+export default class ManufacyturerVsBrand{
     @PrimaryGeneratedColumn()
     id: number;
 
@@ -15,3 +15,5 @@ export class ManufacyturerVsBrand{
    brand:number;
 
 }
+
+ 

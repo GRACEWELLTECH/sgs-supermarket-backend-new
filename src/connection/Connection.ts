@@ -1,16 +1,14 @@
 import {createConnection} from "typeorm";
 
-import SuperHero from "../entity/SuperHero";
-import Power from "../entity/Power";
 import Category from "../entity/Category";
 import SubCategory from "../entity/SubCategory";
 import ProductType from "../entity/ProductType";
 import ProductSubType from "../entity/ProductSubType";
 import Kind from "../entity/Kind";
 import SubKind from "../entity/SubKind";
-import {Manufacturer} from "../entity/Manufacturer";
-import {ManufacyturerVsBrand} from "../entity/ManufacturerVsBrand";
-import {Brand} from "../entity/Brand";
+import Manufacturer from "../entity/Manufacturer";
+import ManufacyturerVsBrand from "../entity/ManufacturerVsBrand";
+import Brand from "../entity/Brand";
 import {Product} from "../entity/Product";
 import {Gst} from "../entity/Gst";
 import {ItemVsEan} from "../entity/Inventory/ItemVsEan";
@@ -39,12 +37,13 @@ import {RepackWastageDetail} from "../entity/Inventory/RepackWastageDetail";
 import {RepackWeightloss} from '../entity/Inventory/RepackWeightLoss';
 import {RepackweightLossDetail} from '../entity/Inventory/RepackWeightLossDetails';
 import {RepackReuse} from '../entity/Inventory/RepackReuse'
-import {RepackReuseDetail} from '../entity/Inventory/RepackReuseDetail'
+import {RepackReuseDetail} from '../entity/Inventory/RepackReuseDetail';
+import OpeningStock from '../entity/Inventory/OpeningStock'
 //import {T}}
 // import {DistributerSalesPersion} from "../entity/Purchase/Distributer/DistributerSalespersion";
 import {TransporterMaster} from "../entity/Purchase/TransporterMaster";
 
-
+import {Wastage}  from '../entity/Inventory/wastage'
 export const connection = createConnection({
      type: "mysql",
     host: "localhost",
@@ -68,10 +67,10 @@ export const connection = createConnection({
         GiftvoucherIssue,
         GiftVoucher,
         prepareAssemblyKit,
-        RepackEntry,Repack,
-        RepackStock,
-        RepackTransfer,RepackTransferDetail,
-        RepackWastage,RepackWastageDetail,
+        Wastage,OpeningStock,
+            //inventoary-repack
+        RepackEntry,Repack,RepackStock,
+        RepackTransfer,RepackTransferDetail,RepackWastage,RepackWastageDetail,
         RepackWeightloss,RepackweightLossDetail,RepackReuse,RepackReuseDetail,
         //purchease 
         Distributor,
