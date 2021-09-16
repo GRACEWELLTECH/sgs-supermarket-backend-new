@@ -1,6 +1,6 @@
 import {Request, Response} from 'express';
 import {getRepository} from 'typeorm'
-import {Wastage} from '../../entity/Inventory/Wastage'
+import {Wastage} from '../../entity/Inventory/wastage'
 import {WastageDetail} from '../../entity/Inventory/WastageDetail'
 
 export class WastageController{
