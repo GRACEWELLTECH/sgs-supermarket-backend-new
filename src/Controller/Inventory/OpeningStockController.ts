@@ -11,7 +11,7 @@ export default class OpeningStockController{
     {
         let data=req.body;
         let arrayTosave=[]
-        await data.forEach(async element => {
+        data.forEach(async element => {
             let newObj:OpeningStock;
             if(element.stockId!=null){
                 console.log("stockId-tr", element.stockId)
