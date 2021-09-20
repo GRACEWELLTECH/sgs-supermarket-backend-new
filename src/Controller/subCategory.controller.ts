@@ -1,6 +1,6 @@
 import {Request, Response} from 'express';
 import {connection} from "../connection/Connection";
-import {getRepository} from "typeorm";
+import {getRepository,In} from "typeorm";
 
 import {SubCategory} from "../entity/SubCategory"
 
@@ -22,6 +22,19 @@ export class SubCategoryController{
                 .then(async connection => {
                     const CategoryList: SubCategory[] = await connection.manager.find(SubCategory,
                         {where:{category:req.params.categoryId},relations:["category"]});
+                    res.json(CategoryList);
+                })
+                .catch(error => {
+                    console.error("Error ", error);
+                    res.json(error);
+                }); 
+      
+    }
+     async getSubCategorybyCategoryList(req, res,next) {
+     connection
+                .then(async connection => {
+                    const CategoryList: SubCategory[] = await connection.manager.find(SubCategory,
+                        {where:{category:In(req.body.category)},relations:["category"]});
                     res.json(CategoryList);
                 })
                 .catch(error => {

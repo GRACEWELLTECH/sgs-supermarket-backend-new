@@ -29,6 +29,7 @@ productRouter.put('/updateCategory/:id',categoryController.updateCategory)
 
 productRouter.get('/subcategory',subCategoryController.getSubCategory)
 productRouter.get('/subcategorybyCategory/:categoryId',subCategoryController.getSubCategorybyCategory)
+productRouter.post('/subcategorybyCategoryList',subCategoryController.getSubCategorybyCategoryList)
 productRouter.post('/createSubcategory',subCategoryController.createSubCategory)
 productRouter.put('/updateSubCategory/:id',subCategoryController.updateSubCategory)
   
