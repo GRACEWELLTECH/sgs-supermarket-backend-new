@@ -327,7 +327,7 @@ filterProductsWithEan(req,res,next){
     let conditionString=";";
 
     if(condtion.length>0){
-        conditionString="where "+condtion+conditionString;
+        conditionString=" where "+condtion+conditionString;
     }
    let  queryString=query+conditionString;
    console.log("queryString",queryString)
