@@ -56,7 +56,7 @@ export class SubCategoryController{
             await catRepo.save(CatagoryToUpdate)
             res.json(CatagoryToUpdate);
         }
-           catch(error){
+        catch(error){
                 console.error("Error ", error);
                 res.json(error);
             }; 

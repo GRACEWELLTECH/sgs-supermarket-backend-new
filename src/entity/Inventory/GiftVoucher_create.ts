@@ -10,7 +10,7 @@ export class GiftVoucher {
     name : string;
 
     @Column()
-    numberPrefix: number;
+    numberPrefix: string;
 
     @Column()
     startingNumber: number;

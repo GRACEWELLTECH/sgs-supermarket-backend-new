@@ -119,7 +119,7 @@ export class GiftVouchercreateController{
     }
     getGiftvoucherIssueById(req, res) {
         
-        getRepository(GiftvoucherIssue).find({where:{giftVoucher:req.params.id}}).then(list=>{
+        getRepository(GiftvoucherIssue).find({where:{giftVoucher:req.params.id},relations:["product","giftVoucher"]}).then(list=>{
             return res.status(200).json({message:"success",data:list});
         }).catch(error=>{
             return res.status(400).json({message:"Error",Error:error});
