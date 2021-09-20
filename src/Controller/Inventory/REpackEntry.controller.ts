@@ -102,13 +102,14 @@ export class RepackEntryController{
             detailList.push(NewObj);
         })
 
-        getRepository(RepackTransferDetail).save(detailList).then(savedObj=>{
-            savedObj.forEach(async item=>{
+        getRepository(RepackTransferDetail).save(detailList).then(async savedObj=>{
+           await savedObj.forEach(async item=>{
              let stock=  await getRepository(RepackStock).findOne({where:{product:item.product}});
                 if(item.from=="Warehouse")
                 {
                     stock.wareHouse=stock.wareHouse-item.quantity;
                 }else if (item.from=="Store")
+                
                 {
                     stock.store=stock.store-item.quantity;
                 }else if(item.from=="Shop"){
@@ -123,7 +124,7 @@ export class RepackEntryController{
                 }else if(item.to=="Shop"){
                     stock.shop=stock.shop+item.quantity;
                 }
-
+                await getRepository(RepackStock).save(stock);
             })
             return res.status(200).json({message:"Success",data:savedObj});
 
