@@ -293,6 +293,50 @@ getProductWithEan(req, res) {
     
 }
 
+filterProductsWithEan(req,res,next){
+
+    let condtion= "";
+
+    if(req.body.category!=null&&req.body.category!=""&&req.body.category!=undefined)
+    condtion=condtion+"A.categoryId in ("+req.body.category.join(",")+")";
+
+    if(req.body.subCategory!=null&&req.body.subCategory!=""&&req.body.subCategory!=undefined)
+    condtion=condtion+"and A.subCategoryId in ("+req.body.subCategory.join(",")+")"
+
+    if(req.body.type!=null&&req.body.type!=""&&req.body.type!=undefined)
+    condtion=condtion+"and A.typeId in ("+req.body.type.join(",")+")"
+
+    // if(req.body.subType!=null&&req.body.subType!=""&&req.body.subType!=undefined)
+    // condtion.subType=req.body.subType;
+
+    // if(req.body.kind!=null&&req.body.kind!=""&&req.body.kind!=undefined)
+    // condtion.kind=req.body.kind;
+
+    // if(req.body.subKind!=null&&req.body.subKind!=""&&req.body.subKind!=undefined)
+    // condtion.subKind=req.body.subKind;
+
+    // if(req.body.manufacturer!=null&&req.body.manufacturer!=""&&req.body.manufacturer!=undefined)
+    // condtion.manufacturer=req.body.manufacturer;
+
+    // if(req.body.brand!=null&&req.body.brand!=""&&req.body.brand!=undefined)
+    // condtion.brand=req.body.brand;
+
+
+    let query="SELECT A.*,b.id as 'assignId',b.eanCode,b.mrp,b.retail FROM product A Left Outer join item_vs_ean b on A.id=b.productIdId";
+
+    let conditionString=";";
+
+    if(condtion.length>0){
+        conditionString="where "+condtion+conditionString;
+    }
+   let  queryString=query+conditionString
+    getRepository(Product).query(queryString)
+
+    .then(result=>{
+        return res.status(200).json({data: result})
+    })
+}
+
 }
 
 
