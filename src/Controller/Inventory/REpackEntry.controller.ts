@@ -117,12 +117,12 @@ export class RepackEntryController{
                 }
 
                 if(item.to=="Warehouse"){
-                    stock.wareHouse=stock.wareHouse+item.quantity;
+                    stock.wareHouse=parseInt(stock.wareHouse+"")+parseInt(item.quantity+"");
                 }else if (item.to=="Store")
                 {
-                    stock.store=stock.store+item.quantity;
+                    stock.store=parseInt(stock.store+"")+parseInt(item.quantity+"");;
                 }else if(item.to=="Shop"){
-                    stock.shop=stock.shop+item.quantity;
+                    stock.shop=parseInt(stock.shop+"")+parseInt(item.quantity+"");;
                 }
                 await getRepository(RepackStock).save(stock);
             })
