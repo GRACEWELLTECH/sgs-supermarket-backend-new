@@ -1,6 +1,6 @@
 import {Request, Response} from 'express';
 import {connection} from "../connection/Connection";
-import {getRepository} from "typeorm";
+import {getRepository,In} from "typeorm";
 
 import {ProductType} from "../entity/ProductType"
 
@@ -22,6 +22,19 @@ export class ProductTypeController{
                 .then(async connection => {
                     const typeList: ProductType[] = await connection.manager
                     .find(ProductType,{where:{subCategory:req.params.id},relations:["subCategory","subCategory.category"]});
+                    res.json(typeList);
+                })
+                .catch(error => {
+                    console.error("Error ", error);
+                    res.json(error);
+                }); 
+      
+    }
+    async getProductTypeBySubCategoryList(req, res,next) {
+      connection
+                .then(async connection => {
+                    const typeList: ProductType[] = await connection.manager
+                    .find(ProductType,{where:{subCategory:In(req.body.subCategory)},relations:["subCategory","subCategory.category"]});
                     res.json(typeList);
                 })
                 .catch(error => {

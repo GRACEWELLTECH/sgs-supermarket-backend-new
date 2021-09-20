@@ -35,6 +35,7 @@ productRouter.put('/updateSubCategory/:id',subCategoryController.updateSubCatego
   
 productRouter.get('/getProductType',productTypeController.getProductType)
 productRouter.get('/getProductTypeBySubCategory/:id',productTypeController.getProductTypeBySubCategory)
+productRouter.post('/getProductTypeBySubCategoryList',productTypeController.getProductTypeBySubCategoryList)
 productRouter.post('/CreateProductType',productTypeController.CreateProductType)
   
 productRouter.get('/getSubType',productSubTypeController.getSubType)
