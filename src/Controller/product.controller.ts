@@ -329,7 +329,8 @@ filterProductsWithEan(req,res,next){
     if(condtion.length>0){
         conditionString="where "+condtion+conditionString;
     }
-   let  queryString=query+conditionString
+   let  queryString=query+conditionString;
+   console.log("queryString",queryString)
     getRepository(Product).query(queryString)
 
     .then(result=>{

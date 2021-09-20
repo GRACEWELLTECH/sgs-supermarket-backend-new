@@ -66,6 +66,7 @@ inventoryRouter.get('/getAllRepackWastage',repack.getAllRepackWastage)
 inventoryRouter.get('/getRepackWastageDetail/:id',repack.getRepackWastageDetail)
 
 //Repack-weight-loss
+
 inventoryRouter.post('/repackWeightLossEntry',repack.RepackWeightLossEntry)
 inventoryRouter.get('/getAllRepackWeightLoss',repack.getAllRepackWeightLoss)
 inventoryRouter.get('/getRepackWeightlossDetail/:id',repack.getRepackWeightlossDetail)
