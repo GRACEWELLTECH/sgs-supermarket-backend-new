@@ -1,6 +1,6 @@
 import {Request, Response} from 'express';
 import {connection} from "../connection/Connection";
-import {getRepository} from "typeorm";
+import {getRepository,In} from "typeorm";
 
 import {ProductSubType} from "../entity/ProductSubType"
 
@@ -22,6 +22,19 @@ export class ProductSubTypeController{
       connection
                 .then(async connection => {
                     const typeList: ProductSubType[] = await connection.manager.find(ProductSubType,{where:{productType:req.params.typeId}});
+                    res.json(typeList);
+                })
+                .catch(error => {
+                    console.error("Error ", error);
+                    res.json(error);
+                }); 
+      
+    }
+    async getSubTypeByTypeList(req, res,next) {
+      connection
+                .then(async connection => {
+                    const typeList: ProductSubType[] = await connection.manager
+                    .find(ProductSubType,{where:{productType:In(req.body.type)}});
                     res.json(typeList);
                 })
                 .catch(error => {

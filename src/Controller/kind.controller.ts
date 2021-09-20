@@ -1,6 +1,6 @@
 import {Request, Response} from 'express';
 import {connection} from "../connection/Connection";
-import {getRepository} from "typeorm";
+import {getRepository, In} from "typeorm";
 
 import {Kind} from "../entity/Kind"
 import {SubKind} from "../entity/SubKind"
@@ -22,6 +22,18 @@ export class KindController{
       connection
                 .then(async connection => {
                     const CategoryList: Kind[] = await connection.manager.find(Kind,{where:{subType:req.params.id}});
+                    res.json(CategoryList);
+                })
+                .catch(error => {
+                    console.error("Error ", error);
+                    res.json(error);
+                }); 
+      
+    }
+    async getKindBuSubTypeList(req, res,next) {
+      connection
+                .then(async connection => {
+                    const CategoryList: Kind[] = await connection.manager.find(Kind,{where:{subType:In(req.body.subtype)}});
                     res.json(CategoryList);
                 })
                 .catch(error => {

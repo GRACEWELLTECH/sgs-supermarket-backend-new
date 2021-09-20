@@ -40,10 +40,12 @@ productRouter.post('/CreateProductType',productTypeController.CreateProductType)
   
 productRouter.get('/getSubType',productSubTypeController.getSubType)
 productRouter.get('/getSubTypeByType/:typeId',productSubTypeController.getSubTypeByType)
+productRouter.post('/getSubTypeByTypeList',productSubTypeController.getSubTypeByTypeList)
 productRouter.post('/CreateSubType',productSubTypeController.CreateSubType)
 
 productRouter.get('/getKind',kindController.getKind)
 productRouter.get('/getKindBySubType/:id',kindController.getKindBuSubType)
+productRouter.get('/getKindBySubTypeList',kindController.getKindBuSubTypeList)
 productRouter.post('/CreateKind',kindController.CreateKind)
 
 productRouter.get('/getSubKind',kindController.getSubKind)
