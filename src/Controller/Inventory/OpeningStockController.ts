@@ -15,13 +15,13 @@ export default class OpeningStockController{
         for(let element of data){
             let newObj:OpeningStock;
             if(element.stockId==null){
-                console.log("stockId", element.stockId)
+              
                 newObj=new OpeningStock();
                 newObj.quantity=element.quantity;
             }else{
                 
                 console.log("stockId-tr", element.stockId)
-                newObj=await getRepository(OpeningStock).findOne(element.stockId)
+                newObj=await getRepository(OpeningStock).findOne({id:element.stockId});
                 newObj.quantity += parseInt(element.quantity);
             }
            console.log("newObj", newObj)
