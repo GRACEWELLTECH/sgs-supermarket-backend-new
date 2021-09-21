@@ -11,7 +11,8 @@ export default class OpeningStockController{
     {
         let data=req.body;
         let arrayTosave=[]
-        data.forEach(async element => {
+
+        for(let element of data){
             let newObj:OpeningStock;
             if(element.stockId!=null){
                 console.log("stockId-tr", element.stockId)
@@ -26,7 +27,7 @@ export default class OpeningStockController{
             newObj.product=element.product;
             newObj.quantity=element.quantity;
             arrayTosave.push(newObj);
-        });
+        };
         console.log("arrayTosave", arrayTosave)
         getRepository(OpeningStock).save(arrayTosave).then(result=>{
             return res.status(200).json({message:"Success",data:result});
