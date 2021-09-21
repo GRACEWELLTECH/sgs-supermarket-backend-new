@@ -8,6 +8,7 @@ import {RepackEntryController} from '../Controller/Inventory/REpackEntry.control
 import OpeningStockController from '../Controller/Inventory/OpeningStockController'
 import {WastageController} from '../Controller/Inventory/Wastage.controller'
 import {StockController} from '../Controller/Inventory/StockController'
+import {ReorderMaxminController} from '../Controller/Inventory/ReorderMaxmin.Controller'
 const itemVsEan=new itemVsEanController()
 const hsnVsGst=new HsnVsGstController()
 const assemply=new AssemplyKitController()
@@ -16,6 +17,7 @@ const repack=new RepackEntryController()
 const openingStock=new OpeningStockController()
 const wastage=new WastageController()
 const stock=new StockController()
+const minMax=new ReorderMaxminController()
 
 const inventoryRouter = Router();
 
@@ -83,6 +85,7 @@ inventoryRouter.post('/saveWastage',wastage.saveWastage)
 
 //stock update
 inventoryRouter.post('/updateStock',stock.updateStock)
+inventoryRouter.post('/UpdateMaxMin',minMax.UpdateMaxMin)
 
 
 
