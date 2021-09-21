@@ -1,7 +1,7 @@
 import {Request, Response} from 'express';
 import {getRepository} from 'typeorm';
 import {Stock} from '../../entity/Inventory/stock'
-import { Controller } from '../Controller';
+
 
 export class StockController{
     async updateStock(req, res,next){
