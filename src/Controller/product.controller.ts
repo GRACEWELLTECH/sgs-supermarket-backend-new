@@ -285,7 +285,10 @@ export class ProductController{
 
 getProductWithEan(req, res) {
 
-    getRepository(Product).query("SELECT A.*,b.id as 'eanId',b.eanCode,b.mrp,b.retail FROM product A right join item_vs_ean b on A.id=b.productIdId;" )
+    let querry="SELECT A.*,b.id as 'eanId',b.eanCode,b.mrp,b.retail,(ifnull(s.godown,0)+ifnull(s.store,0)+ifnull(s.shop,0)) as 'currentStock' "+ 
+    "FROM product A right join item_vs_ean b on A.id=b.productIdId left Outer join stock s on b.id=s.eanId;" 
+
+    getRepository(Product).query(querry)
 
     .then(result=>{
         return res.status(200).json({data: result})
@@ -293,8 +296,8 @@ getProductWithEan(req, res) {
     
 }
 getProductWithEanById(req, res) {
-let query="SELECT A.*,b.id as 'eanId',b.eanCode,b.mrp,b.retail "+
-"FROM product A right join item_vs_ean b on A.id=b.productIdId where A.id="+req.params.id+";";
+let query="SELECT A.*,b.id as 'eanId',b.eanCode,b.mrp,b.retail,(ifnull(s.godown,0)+ifnull(s.store,0)+ifnull(s.shop,0)) as 'currentStock' "+
+"FROM product A right join item_vs_ean b on A.id=b.productIdId left Outer join stock s on b.id=s.eanId where A.id="+req.params.id+";";
     
 getRepository(Product).query(query)
 
