@@ -7,6 +7,7 @@ import {GiftVouchercreateController} from '../Controller/Inventory/GiftVoucher_c
 import {RepackEntryController} from '../Controller/Inventory/REpackEntry.controller'
 import OpeningStockController from '../Controller/Inventory/OpeningStockController'
 import {WastageController} from '../Controller/Inventory/Wastage.controller'
+import {StockController} from '../Controller/Inventory/StockController'
 const itemVsEan=new itemVsEanController()
 const hsnVsGst=new HsnVsGstController()
 const assemply=new AssemplyKitController()
@@ -14,6 +15,7 @@ const giftvoucher=new GiftVouchercreateController()
 const repack=new RepackEntryController()
 const openingStock=new OpeningStockController()
 const wastage=new WastageController()
+const stock=new StockController()
 
 const inventoryRouter = Router();
 
@@ -78,5 +80,10 @@ inventoryRouter.post('/saveOpeningStock',openingStock.saveOpeningStock)
 inventoryRouter.get('/getProductsForOpeningStock',openingStock.getProductsForOpeningStock)
 // wastage
 inventoryRouter.post('/saveWastage',wastage.saveWastage)
-// inventoryRouter.get('/getProductsForOpeningStock',openingStock.getProductsForOpeningStock)
+
+//stock update
+inventoryRouter.post('/updateStock',stock.updateStock)
+
+
+
 export default inventoryRouter;

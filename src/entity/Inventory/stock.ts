@@ -2,7 +2,7 @@ import { Entity, PrimaryGeneratedColumn, Column, ManyToOne,} from 'typeorm';
 import {ItemVsEan} from "./ItemVsEan";
 
 @Entity()
-export class stock {
+export class Stock {
     @PrimaryGeneratedColumn()
     id: number;
 

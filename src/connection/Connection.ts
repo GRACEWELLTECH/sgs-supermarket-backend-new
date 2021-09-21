@@ -39,7 +39,7 @@ import {RepackweightLossDetail} from '../entity/Inventory/RepackWeightLossDetail
 import {RepackReuse} from '../entity/Inventory/RepackReuse'
 import {RepackReuseDetail} from '../entity/Inventory/RepackReuseDetail';
 import OpeningStock from '../entity/Inventory/OpeningStock'
-import {stock} from '../entity/Inventory/stock'
+import {Stock} from '../entity/Inventory/stock'
 //import {T}}
 // import {DistributerSalesPersion} from "../entity/Purchase/Distributer/DistributerSalespersion";
 import {TransporterMaster} from "../entity/Purchase/TransporterMaster";
@@ -68,7 +68,7 @@ export const connection = createConnection({
         GiftvoucherIssue,
         GiftVoucher,
         prepareAssemblyKit,
-        Wastage,OpeningStock,stock,
+        Wastage,OpeningStock,Stock,
             //inventoary-repack
         RepackEntry,Repack,RepackStock,
         RepackTransfer,RepackTransferDetail,RepackWastage,RepackWastageDetail,
