@@ -322,7 +322,7 @@ filterProductsWithEan(req,res,next){
     // condtion.brand=req.body.brand;
 
 
-    let query="SELECT A.*,b.id as 'assignId',b.eanCode,b.mrp,b.retail FROM product A Left Outer join item_vs_ean b on A.id=b.productIdId";
+    let query="SELECT A.*,b.id as 'eanId',b.eanCode,b.mrp,b.retail FROM product A right join item_vs_ean b on A.id=b.productIdId";
 
     let conditionString=";";
 
