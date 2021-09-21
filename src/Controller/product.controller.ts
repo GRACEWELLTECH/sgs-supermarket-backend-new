@@ -292,6 +292,17 @@ getProductWithEan(req, res) {
     })
     
 }
+getProductWithEanById(req, res) {
+let query="SELECT A.*,b.id as 'eanId',b.eanCode,b.mrp,b.retail "+
+"FROM product A right join item_vs_ean b on A.id=b.productIdId where A.id="+req.params.id+";";
+    
+getRepository(Product).query(query)
+
+    .then(result=>{
+        return res.status(200).json({data: result})
+    })
+    
+}
 
 filterProductsWithEan(req,res,next){
 
