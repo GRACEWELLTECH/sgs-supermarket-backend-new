@@ -10,11 +10,11 @@ export class StockController{
     let storeArray=[] ;
 
    for(let item of data){
-            let stockObj=await getRepository(Stock).findOne({ean:item.eamnId});
+            let stockObj=await getRepository(Stock).findOne({ean:item.eanId});
 
             if(stockObj==undefined){
                 stockObj=new Stock();
-                stockObj.ean=item.eamnId;
+                stockObj.ean=item.eanId;
                 stockObj.shop=item.quantity
             }else{
                 stockObj.shop+=parseInt(item.quantity);
