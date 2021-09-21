@@ -1,6 +1,6 @@
 import {Request, Response} from 'express';
 import {connection} from "../connection/Connection";
-import {getRepository} from "typeorm";
+import {getRepository, In} from "typeorm";
 
 import {Manufacturer} from "../entity/Manufacturer"
 import {Brand} from "../entity/Brand"
@@ -54,6 +54,15 @@ export class ManufacturerController{
     async getBarandsByManufacturer(req, res,next) {
      let repo=getRepository(ManufacyturerVsBrand)
       repo.find({where:{manufacturer:req.params.manufacturer},relations:["manufacturer","brand"]}).then((result) => {
+
+        return res.status(200).json({data:result});
+      }).catch((error) => {
+        return res.status(400).json({error:error});
+      })
+    }
+    async getBarandsByManufacturerList(req, res,next) {
+     let repo=getRepository(ManufacyturerVsBrand)
+      repo.find({where:{manufacturer:In(req.body.manufacturer)},relations:["manufacturer","brand"]}).then((result) => {
 
         return res.status(200).json({data:result});
       }).catch((error) => {
