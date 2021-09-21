@@ -2,7 +2,7 @@ import {Request, Response} from 'express';
 import { getRepository } from 'typeorm';
 
 import ReorderMaxMin from '../../entity/Inventory/ReorderMaxMin'
-import { Controller } from '../Controller';
+
 
 
 export class ReorderMaxminController{
