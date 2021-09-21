@@ -10,12 +10,24 @@ export class DistributerSalesPersion{
 
     @Column()
     name:string;
-
+    
     @Column()
     mobile:string;
 
-    @Column()
+    @Column({default:null})
+    mobile1:string;
+
+    @Column({default:null})
+    mobile2:string;
+
+    @Column({default:null})
     whatsapp:string;
+
+    @Column({default:null})
+    whatsapp1:string;
+    
+    @Column({default:null})
+    whatsapp2:string;
 
     @ManyToOne(()=>Distributor,(distributor)=>distributor.id)
     distributer:number

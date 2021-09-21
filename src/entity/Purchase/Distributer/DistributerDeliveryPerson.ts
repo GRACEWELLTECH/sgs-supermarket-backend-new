@@ -14,8 +14,20 @@ export class DistributerDeliveryPersion{
     @Column()
     mobile:string;
 
+    @Column({default:null})
+    mobile1:string;
+
+    @Column({default:null})
+    mobile2:string;
+
     @Column()
     whatsapp:string;
+
+    @Column({default:null})
+    whatsapp1:string;
+
+    @Column({default:null})
+    whatsapp2:string;
 
     @ManyToOne(()=>Distributor,(distributor)=>distributor.id)
     distributer:Distributor
