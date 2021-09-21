@@ -26,7 +26,7 @@ export default class OpeningStockController{
             }
            console.log("newObj", newObj)
             newObj.product=element.product;
-            newObj.quantity=element.quantity;
+            
             arrayTosave.push(newObj);
         };
         console.log("arrayTosave", arrayTosave)
