@@ -50,6 +50,7 @@ productRouter.post('/CreateKind',kindController.CreateKind)
 
 productRouter.get('/getSubKind',kindController.getSubKind)
 productRouter.get('/getSubKindByKind/:id',kindController.getSubKindByKind)
+productRouter.post('/getSubKindByKindList',kindController.getSubKindByKindList)
 productRouter.post('/CreateSubKind',kindController.CreateSubKind)
 
 productRouter.get('/getWeightUnits',weightUnitCobtroller.getWeight)

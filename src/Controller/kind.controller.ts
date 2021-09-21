@@ -82,6 +82,18 @@ export class KindController{
                 }); 
       
     }
+    async getSubKindByKindList(req, res,next) {
+      connection
+                .then(async connection => {
+                    const CategoryList: SubKind[] = await connection.manager.find(SubKind,{where:{kind:In(req.body.kind)}});
+                    res.json(CategoryList);
+                })
+                .catch(error => {
+                    console.error("Error ", error);
+                    res.json(error);
+                }); 
+      
+    }
     async CreateSubKind(req, res,next) {
       connection
                 .then(async connection => {
