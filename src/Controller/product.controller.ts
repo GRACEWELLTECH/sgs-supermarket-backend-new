@@ -306,14 +306,14 @@ filterProductsWithEan(req,res,next){
     if(req.body.type!=null&&req.body.type!=""&&req.body.type!=undefined)
     condtion=condtion+"and A.typeId in ("+req.body.type.join(",")+")"
 
-    // if(req.body.subType!=null&&req.body.subType!=""&&req.body.subType!=undefined)
-    // condtion.subType=req.body.subType;
+    if(req.body.subType!=null&&req.body.subType!=""&&req.body.subType!=undefined)
+    condtion=condtion+"and A.subTypeId in ("+req.body.subType.join(",")+")"
 
-    // if(req.body.kind!=null&&req.body.kind!=""&&req.body.kind!=undefined)
-    // condtion.kind=req.body.kind;
+    if(req.body.kind!=null&&req.body.kind!=""&&req.body.kind!=undefined)
+    condtion=condtion+"and A.kindId in ("+req.body.kind.join(",")+")"
 
-    // if(req.body.subKind!=null&&req.body.subKind!=""&&req.body.subKind!=undefined)
-    // condtion.subKind=req.body.subKind;
+    if(req.body.subKind!=null&&req.body.subKind!=""&&req.body.subKind!=undefined)
+    condtion=condtion+"and A.subKindId in ("+req.body.subKind.join(",")+")"
 
     // if(req.body.manufacturer!=null&&req.body.manufacturer!=""&&req.body.manufacturer!=undefined)
     // condtion.manufacturer=req.body.manufacturer;
