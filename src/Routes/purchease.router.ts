@@ -20,6 +20,7 @@ purcheaseRouter.get('/getTransporterMasterList',transporter.getTransporterMaster
 
 //DistributervsManufacturer
 purcheaseRouter.post('/assignDistributervsManufacturer',distributerVsManufacturer.assignDistributervsManufacturer)
+purcheaseRouter.get('/getManufacturerByDistributer/:id',distributerVsManufacturer.getManufacturerByDistributer)
 
 
 

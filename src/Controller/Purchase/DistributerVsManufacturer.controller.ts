@@ -20,4 +20,13 @@ export class DistributerVsManufacturerController{
             return res.status(200).json({Error:error});
         })
     }
+
+    getManufacturerByDistributer(req, res) {
+
+        getRepository(DistributerVsManufacturer).find({where:{distributor:req.params.id}}).then(list=>{
+            return res.status(200).json({data:list});
+        }).catch(error=>{
+            return res.status(400).json({Error:error});
+        })
+    }
 }
