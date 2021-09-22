@@ -1,6 +1,8 @@
 import {request, Response} from 'express';
 
-import {getRepository} from 'typeorm';
+
+import {getRepository} from 'typeorm'
+
 import {DistributerVsManufacturer} from '../../entity/Purchase/DistributerVsManufacturer';
 
 export class DistributerVsManufacturerController{
