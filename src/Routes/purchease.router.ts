@@ -5,6 +5,7 @@ import {TransporterMasterController} from '../Controller/Purchase/TransporterMas
 import {CategoryVsBrandController} from '../Controller/Purchase/categtoryVsBrand.controller'
 import {CategoryVsManufacturerController} from '../Controller/Purchase/categoryVSManufacturer.controller'
 import {DistributerVsManufacturerController} from '../Controller/Purchase/DistributerVsManufacturer.controller'
+import {DistributerVsItemController} from '../Controller/Purchase/DistributerVsItem.controller'
 
 const purcheaseRouter=Router();
 const distributer=new DistributorMasterController()
@@ -12,6 +13,7 @@ const transporter=new TransporterMasterController()
 const catVsBrand=new CategoryVsBrandController()
 const catVsManu=new CategoryVsManufacturerController()
 const distributerVsManufacturer=new DistributerVsManufacturerController()
+const distributerVsItem=new DistributerVsItemController()
 
 purcheaseRouter.post('/createDistributer',distributer.createDistributorMaster)
 purcheaseRouter.get('/getDistributerList',distributer.getDistributorMaster)
@@ -19,6 +21,7 @@ purcheaseRouter.get('/getDistributerList',distributer.getDistributorMaster)
 // catVsBrand
 purcheaseRouter.post('/assignCategoryVsBrand',catVsBrand.asssignCategoryVsBrand)
 purcheaseRouter.post('/getbrandbycategory',catVsBrand.getbrandVbycategory)
+
 // catVsManufacturer
 purcheaseRouter.post('/assignCategoryVsManufacturer',catVsManu.asssignCategoryVsManufacturer)
 purcheaseRouter.post('/getManufacturerbycategory',catVsManu.getCategoryVsManufacturer)
@@ -30,6 +33,10 @@ purcheaseRouter.get('/getTransporterMasterList',transporter.getTransporterMaster
 purcheaseRouter.post('/assignDistributervsManufacturer',distributerVsManufacturer.assignDistributervsManufacturer)
 purcheaseRouter.get('/getManufacturerByDistributer/:id',distributerVsManufacturer.getManufacturerByDistributer)
 
+//DistributervsManufacturer
+purcheaseRouter.post('/assignDistributervsItem',distributerVsItem.assignDistributerVsItem)
+purcheaseRouter.get('/getDistributervsItem/:id',distributerVsItem.getItemByDistributer)
+//
 
 
 export default purcheaseRouter;

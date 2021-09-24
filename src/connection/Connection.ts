@@ -41,7 +41,8 @@ import {RepackReuseDetail} from '../entity/Inventory/RepackReuseDetail';
 import OpeningStock from '../entity/Inventory/OpeningStock'
 import {Stock} from '../entity/Inventory/stock'
 import ReorderMaxMin from '../entity/Inventory/ReorderMaxMin'
-import {DistributerVsManufacturer} from '../entity/Purchase/DistributerVsManufacturer'
+import {DistributerVsManufacturer} from '../entity/Purchase/DistributerVsManufacturer';
+import {DistributerVsItem} from '../entity/Purchase/DistributerVsItem'
 //import {T}}
 // import {DistributerSalesPersion} from "../entity/Purchase/Distributer/DistributerSalespersion";
 import {TransporterMaster} from "../entity/Purchase/TransporterMaster";
@@ -83,7 +84,9 @@ export const connection = createConnection({
         CategoryVsBrand,TransporterMaster,
         DistributerVsManufacturer,
         // DistributerSalesPersion,
-        OrderVsDelivery, CategoryVsManufacturer
+        OrderVsDelivery,
+         CategoryVsManufacturer,
+         DistributerVsItem
     ],
     synchronize: true,
     logging: false
