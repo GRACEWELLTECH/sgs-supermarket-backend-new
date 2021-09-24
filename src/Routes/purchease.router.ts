@@ -14,6 +14,7 @@ const distributerVsManufacturer=new DistributerVsManufacturerController()
 purcheaseRouter.post('/createDistributer',distributer.createDistributorMaster)
 purcheaseRouter.get('/getDistributerList',distributer.getDistributorMaster)
 purcheaseRouter.post('/assignCategoryVsBrand',catVsBrand.asssignCategoryVsBrand)
+purcheaseRouter.post('/getbrandbycategory',catVsBrand.getbrandVbycategory)
 
 purcheaseRouter.post('/createTransporterMaster',transporter.createTransporterMaster)
 purcheaseRouter.get('/getTransporterMasterList',transporter.getTransporterMaster)
