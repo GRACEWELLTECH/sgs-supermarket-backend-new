@@ -3,7 +3,7 @@ import {connection} from "../connection/Connection";
 import {getRepository, Like} from "typeorm";
 
 import Product from "../entity/Product"
-import { count } from 'console';
+
 
 export class ProductController{
     async getProductList(req, res,next) {

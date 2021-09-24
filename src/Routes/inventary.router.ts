@@ -80,6 +80,8 @@ inventoryRouter.get('/getRepackwithBulk',repack.getDetailsForReUse)
 // openingStock
 inventoryRouter.post('/saveOpeningStock',openingStock.saveOpeningStock)
 inventoryRouter.get('/getProductsForOpeningStock',openingStock.getProductsForOpeningStock)
+inventoryRouter.post('/filterProductsForOpeningStock',openingStock.filterProductsForOpeningStock)
+
 // wastage
 inventoryRouter.post('/saveWastage',wastage.saveWastage)
 
