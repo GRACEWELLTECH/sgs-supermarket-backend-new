@@ -24,7 +24,7 @@ export class DistributerVsManufacturerController{
 
     getManufacturerByDistributer(req, res) {
 
-        getRepository(DistributerVsManufacturer).find({where:{distributor:req.params.id}}).then(list=>{
+        getRepository(DistributerVsManufacturer).find({where:{distributor:req.params.id},relations:["manufacturer","distributor"]}).then(list=>{
             return res.status(200).json({data:list});
         }).catch(error=>{
             return res.status(400).json({Error:error});
