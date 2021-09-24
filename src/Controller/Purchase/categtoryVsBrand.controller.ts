@@ -53,7 +53,7 @@ export class CategoryVsBrandController{
         if(req.body.subKind!=null&&req.body.subKind!=""&&req.body.subKind!=undefined)
         condtion.subKind=req.body.subKind;
 
-        getRepository(CategoryVsBrand).find({where:{condtion}}).then(list => {
+        getRepository(CategoryVsBrand).find({where:condtion}).then(list => {
             return res.status(200).json({data:list});
         }).catch(err => {
             return res.status(400).json({Error:err});
