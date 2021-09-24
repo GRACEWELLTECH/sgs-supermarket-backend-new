@@ -24,7 +24,7 @@ export class DistributerVsItemController{
     }
 
     async getItemByDistributer(req,res,next){
-        getRepository(DistributerVsItem).find({where:{distributer:req.params.id}}).then(result=>{
+        getRepository(DistributerVsItem).find({where:{distributer:req.params.id},relations:["product"]}).then(result=>{
             return res.status(200).json({data:result})
            }).catch(error=>{
             return res.status(400).json({Error:error})
